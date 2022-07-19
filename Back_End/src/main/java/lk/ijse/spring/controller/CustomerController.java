@@ -39,7 +39,7 @@ public class CustomerController {
     @PostMapping(path = "uploadIdImage")
     public ResponseUtil uploadImageID(@RequestParam("ID") MultipartFile multipartFiles, @RequestParam String custId){
 
-        String pathDirectory="D:\\2 sem projects\\Spring\\SpringCarRental\\src\\main\\resources\\static\\image\\IDCardImage";
+        String pathDirectory="D:\\2 sem projects\\SpringCarRental_Front_Back\\CarRentalSystem\\Back_End\\src\\main\\resources\\static\\images\\IDCardImage";
         String imageName=custId+"ID_CARD"+".jpeg";
         Files.copy(multipartFiles.getInputStream(), Paths.get(pathDirectory+ File.separator+imageName), StandardCopyOption.REPLACE_EXISTING);
 
@@ -50,7 +50,7 @@ public class CustomerController {
     @PostMapping(path = "uploadLicenceImage")
     public ResponseUtil uploadImageLicence(@RequestParam("Licence")MultipartFile multipartFiles, @RequestParam String custId){
 
-        String pathDirectory="D:\\2 sem projects\\Spring\\SpringCarRental\\src\\main\\resources\\static\\image\\LicenceImage";
+        String pathDirectory="D:\\2 sem projects\\SpringCarRental_Front_Back\\CarRentalSystem\\Back_End\\src\\main\\resources\\static\\images\\LicenceImage";
         String imageName=custId+"Licence_CARD"+".jpeg";
         Files.copy(multipartFiles.getInputStream(), Paths.get(pathDirectory+ File.separator+imageName), StandardCopyOption.REPLACE_EXISTING);
 
