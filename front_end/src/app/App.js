@@ -1,14 +1,15 @@
 import React from "react";
 import Dashboard from "../pages/dashboard/dashboard";
-import AddCar from "../pages/addCar/addCar";
-
+import CarAdd from "../pages/admin/carAdd/carAdd";
+import Login from "../pages/login";
 
 function App() {
     return (
 
-        <Dashboard/>
+        /*<Dashboard/>*/
+        /*<CarAdd/>*/
+        <Login/>
 
-        /*<AddCar/>*/
 
     );
 }

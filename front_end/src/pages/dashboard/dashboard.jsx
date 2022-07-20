@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from "react";
 import {withStyles} from "@material-ui/core";
 import {styleSheet} from "./style";
-import dashboardImage from "../../assets/image/addCar.jpg"
+import dashboardImage from "../../assets/image/dashboardImage.jpg";
+import Button from "@material-ui/core/Button";
 
 class Dashboard extends Component {
 
@@ -18,14 +19,20 @@ class Dashboard extends Component {
 
                     </div>
 
-                    <div className={classes.dash_body}>
 
-                         {/*<img src={dashboardImage} alt=""/>*/}
 
+                    <div>
+                        <div className={classes.dash_top}>
+
+                        </div>
+                        <div className={classes.dash_body}>
+
+                            {/*<img src={dashboardImage} alt=""/>*/}
+
+
+                        </div>
 
                     </div>
-
-
 
                 </div>
             </Fragment>

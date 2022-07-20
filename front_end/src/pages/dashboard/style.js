@@ -1,35 +1,40 @@
-import dashBoardImage from "../../assets/image/dashboardImage.jpg"
+import dashboardImage from "../../assets/image/dashboardImage.jpg"
 
 export const styleSheet = {
 
     dashboard_page: {
-        height:'100%',
-        width:'100%'
+        height: '100%',
+        width: '100%'
     },
 
     nav_bar: {
-        height: '102px',
+        height: '65px',
         width: '100%',
-        backgroundColor: 'white',
+        backgroundColor: 'black',
         position: 'relative'
     },
 
-    dash_body:{
-        display : 'flex',
+    dash_top: {
+        height: '130px',
+        width: '100%',
+        backgroundColor: 'orange'
+    },
+    dash_body: {
+        display: 'flex',
         flexDirection : 'row',
-        alignItems : 'center',
-        justifyContent : 'bottom  ',
+        //alignItems : 'center',
+        justifyContent: 'bottom  ',
 
-        height : '980px',
-        width:'100%',
-        position:'relative',
-        background:"url(" + dashBoardImage+ ")no-repeat center center /*fixed*/",
+        height: '885px',
+        width: '2304px',
+        position: 'relative',
+        background: "url(" + dashboardImage + ")no-repeat center center /*fixed*/",
         backgroundSize: 'cover'
 
+    },
+    dashboardImage: {
+
     }
-
-
-
 
 
 }

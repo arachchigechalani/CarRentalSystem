@@ -1,8 +1,62 @@
 import React, {Component, Fragment} from "react";
 import {styleSheet} from "./style";
 import {withStyles} from "@material-ui/core";
-import Button from "@material-ui/core/Button";
 
+import Button from 'react-bootstrap/Button';
+
+import Form from 'react-bootstrap/Form';
+
+
+function BasicExample() {
+    return (
+        <Form>
+            <Form.Group className="mb-5" controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Text className="text-muted">
+                    We'll never share your email with anyone else.
+                </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Submit
+            </Button>
+        </Form>
+    );
+}
+export default BasicExample;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 class CarAdd extends Component {
 
 
@@ -13,16 +67,59 @@ class CarAdd extends Component {
     render() {
         const {classes} = this.props;
         return (
-            <Fragment>
-                <div>
-                    <Button className={classes.h1Style} variant="contained" color="secondary">
-                        Secondary
+
+            //Add Background Image
+
+
+
+
+
+
+
+
+            /!*<div>
+                            <Button variant="secondary">Secondary</Button>
+            </div>*!/
+
+
+            <div>
+                <Form>
+                    <div className="col-1">
+
+
+
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email"/>
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password"/>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out"/>
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
                     </Button>
-                </div>
+
+                    </div>
+                </Form>
+            </div>
 
 
-            </Fragment>
+
+
+
+
         )
     }
 }
-export default withStyles(styleSheet) (CarAdd)
+
+*/
+/*
+export default withStyles(styleSheet)(CarAdd)*/
