@@ -14,13 +14,15 @@ public class CarDTO {
     private String vehicleId;
     private String brand;
     private String image;
-    private int NumOfPassenger;
+    private String NumOfPassenger;
     private String transmissionType;
     private String fuelType;
-    private PriceOfRentDuration priceOfRentDuration;
+    private String priceOfRentDurationDaily;
+    private String priceOfRentDurationMonthly;
     private String freeMileageForPriceAndDuration;
     private String priceOfExtraKm;
     private String registerNumber;
+    private String color;
     private String state;
 
 }

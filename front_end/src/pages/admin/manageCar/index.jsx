@@ -34,7 +34,17 @@ class ManageCar extends Component {
             interiorView:null,
 
             carDetails :{
-
+                vehicleId : '',
+                vehicleType : '',
+                numofP : '',
+                transmissionType : '',
+                fuelType :'',
+                registerNum : '',
+                color : '',
+                pricesForDaily : '',
+                pricesForMonthly : '',
+                freeMileage : '',
+                priceForExtraKm : '',
             }
         }
     }
@@ -86,9 +96,9 @@ class ManageCar extends Component {
                                         label="Vehical ID"
                                         variant="outlined"
 
-
-
-
+                                        onChange={(e) =>{
+                                            this.state.carDetails.vehicleId=e.target.value;
+                                        }}
 
 
                                     />
@@ -99,6 +109,13 @@ class ManageCar extends Component {
                                         id="outlined-required"
                                         label="Type"
                                         variant="outlined"
+
+                                        onChange={(e) =>{
+                                            this.state.carDetails.vehicleType=e.target.value;
+                                        }}
+
+
+
                                     />
                                 </div>
                                 <div>
@@ -107,6 +124,12 @@ class ManageCar extends Component {
                                         id="outlined-required"
                                         label="Num of Passengers"
                                         variant="outlined"
+
+                                        onChange={(e) =>{
+                                            this.state.carDetails.numofP=e.target.value;
+                                        }}
+
+
                                     />
                                 </div>
 
@@ -124,17 +147,24 @@ class ManageCar extends Component {
                                 style={{width: 180}}
                                 renderInput={(params) => <TextField {...params} label="Transmission type."
                                                                     variant="outlined"/>}
+
+                                onChange={(event, value) =>
+                                    this.state.carDetails.transmissionType =  value.title}
                             />
                             <Autocomplete
                                 id="combo-box-demo"
                                 size={"small"}
 
                                 options={[
-                                    {title: 'Auto'},
-                                    {title: "Manual"}]}
+                                    {title: 'Diesel'},
+                                    {title: "Petrol"}]}
                                 getOptionLabel={(option) => option.title}
                                 style={{width: 136}}
                                 renderInput={(params) => <TextField {...params} label="Fuel type." variant="outlined"/>}
+
+                                onChange={(event, value) =>
+                                    this.state.carDetails.fuelType =  value.title}
+
                             />
 
                             <TextField
@@ -144,6 +174,11 @@ class ManageCar extends Component {
                                 defaultValue="Hello World"
                                 style={{width: 200}}
                                 variant="outlined"
+
+                                onChange={(e) =>{
+                                    this.state.carDetails.registerNum=e.target.value;
+                                }}
+
                             />
 
                             <TextField
@@ -153,6 +188,10 @@ class ManageCar extends Component {
                                 defaultValue="Hello World"
                                 variant="outlined"
                                 style={{width: 200}}
+
+                                onChange={(e) =>{
+                                    this.state.carDetails.color=e.target.value;
+                                }}
                             />
 
                         </div>
@@ -171,6 +210,10 @@ class ManageCar extends Component {
                                 id="outlined-required"
                                 label="Price Of Daily"
                                 variant="outlined"
+
+                                onChange={(e) =>{
+                                    this.state.carDetails.pricesForDaily=e.target.value;
+                                }}
                             />
                             <TextField
                                 style={{width: '17%'}}
@@ -178,22 +221,34 @@ class ManageCar extends Component {
                                 id="outlined-required"
                                 label="Price Of Monthly"
                                 variant="outlined"
+
+                                onChange={(e) =>{
+                                    this.state.carDetails.pricesForMonthly=e.target.value;
+                                }}
                             />
 
                             <TextField
 
                                 size={"small"}
                                 id="outlined-required"
-                                label="Type"
+                                label="Km"
                                 variant="outlined"
+
+                                onChange={(e) =>{
+                                    this.state.carDetails.freeMileage=e.target.value;
+                                }}
                             />
 
                             <TextField
 
                                 size={"small"}
                                 id="outlined-required"
-                                label="Type"
+                                label="Rs/="
                                 variant="outlined"
+
+                                onChange={(e) =>{
+                                    this.state.carDetails.priceForExtraKm=e.target.value;
+                                }}
                             />
                         </div>
 
@@ -377,6 +432,42 @@ class ManageCar extends Component {
                             <Button variant="contained" color="success"
                                     onClick={async () => {
 
+                                        var carDetails = {
+                                            vehicleId : this.state.carDetails.vehicleId,
+                                            brand  : this.state.carDetails.vehicleType,
+                                            numOfPassenger : this.state.carDetails.numofP,
+                                            transmissionType : this.state.carDetails.transmissionType,
+                                            fuelType : this.state.carDetails.fuelType,
+                                            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
+                                            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
+                                            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
+                                            priceOfExtraKm : this.state.carDetails.priceForExtraKm,
+                                            registerNumber : this.state.carDetails.registerNum,
+                                            color : this.state.carDetails.color,
+                                            state : 'Parking'
+                                        }
+
+                                        console.log(this.state.carDetails.type);
+
+                                        axios({
+                                            url: 'car/addCar',
+                                            method: 'post',
+                                            contentType : 'application/json',
+                                            data: carDetails,
+                                        })
+                                            .then(function (response) {
+                                                console.log(response);
+                                                alert("Car  added Complete");
+                                            })
+                                            .catch(function (error) {
+                                                console.log(error);
+                                                alert("Car  add fail..")
+                                            });
+
+
+
+
+
                                         var bodyFormData = new FormData();
 
                                         bodyFormData.append('param' , this.state.frontImage);
@@ -400,7 +491,6 @@ class ManageCar extends Component {
                                                 console.log(error);
                                                 alert("Car image add fail..")
                                             });
-
                                     }}
                             >
                                 Upload Images
