@@ -10,9 +10,10 @@ import lk.ijse.spring.service.AdminService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
-
+@CrossOrigin
 @Service
 public class AdminServiceImpl implements AdminService {
 
