@@ -17,6 +17,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
 import axios from "../../../axios";
+import CarService from "../../../services/CarService";
 
 class ManageCar extends Component {
     constructor(props) {
@@ -49,6 +50,51 @@ class ManageCar extends Component {
         }
     }
 
+    addCarImage=async (carId) =>{
+
+        var bodyFormData = new FormData();
+        bodyFormData.append('param', this.state.frontImage);
+        bodyFormData.append('param', this.state.backImage);
+        bodyFormData.append('param', this.state.sideImage);
+        bodyFormData.append('param', this.state.interiorImage);
+
+        let res = await CarService.addCarImage(bodyFormData,carId);
+        if (res.data.code===200){alert(res.data.message)}else {
+            alert(res.data.message);
+        }
+
+    }
+
+    addCar =async () =>{
+
+        var carDetails = {
+            vehicleId : this.state.carDetails.vehicleId,
+            brand  : this.state.carDetails.vehicleType,
+            numOfPassenger : this.state.carDetails.numofP,
+            transmissionType : this.state.carDetails.transmissionType,
+            fuelType : this.state.carDetails.fuelType,
+            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
+            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
+            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
+            priceOfExtraKm : this.state.carDetails.priceForExtraKm,
+            registerNumber : this.state.carDetails.registerNum,
+            color : this.state.carDetails.color,
+            state : 'Parking'
+        }
+
+
+        let res = await CarService.addCar(carDetails);
+        if (res.data.code==200){
+            alert(res.data.message);
+
+            this.addCarImage(carDetails.vehicleId);
+
+        }else {
+            alert(res.data.message);
+        }
+
+
+    }
 
 
 
@@ -71,7 +117,7 @@ class ManageCar extends Component {
                 <div className={classes.divider_container2}></div>
 
                 <div className={classes.form_Container}>
-                    
+
                     <div className={classes.form_backGround_left}>
                         <div className={classes.form_textFieldForm}>
 
@@ -150,6 +196,7 @@ class ManageCar extends Component {
 
                                 onChange={(event, value) =>
                                     this.state.carDetails.transmissionType =  value.title}
+
                             />
                             <Autocomplete
                                 id="combo-box-demo"
@@ -428,79 +475,50 @@ class ManageCar extends Component {
                         </div>
 
 
-                        <div className={classes.search_container}>
-                            <Button variant="contained" color="success"
-                                    onClick={async () => {
+                        <div className={classes.sideButton_container}>
 
-                                        var carDetails = {
-                                            vehicleId : this.state.carDetails.vehicleId,
-                                            brand  : this.state.carDetails.vehicleType,
-                                            numOfPassenger : this.state.carDetails.numofP,
-                                            transmissionType : this.state.carDetails.transmissionType,
-                                            fuelType : this.state.carDetails.fuelType,
-                                            priceOfRentDurationDaily : this.state.carDetails.pricesForDaily ,
-                                            priceOfRentDurationMonthly : this.state.carDetails.pricesForMonthly,
-                                            freeMileageForPriceAndDuration : this.state.carDetails.freeMileage,
-                                            priceOfExtraKm : this.state.carDetails.priceForExtraKm,
-                                            registerNumber : this.state.carDetails.registerNum,
-                                            color : this.state.carDetails.color,
-                                            state : 'Parking'
-                                        }
+                            <div className={classes.search_container}>
+                                <TextField
+                                    label="Search Here"
+                                    id="outlined-size-small"
+                                    variant="outlined"
+                                    size="small"
 
-                                        console.log(this.state.carDetails.type);
+                                    style={{borderRadius : '20px',width: '70%'}}
+                                />
+                                <Button variant="outlined" style={{color : 'green'}}>
+                                    Search
+                                </Button>
+                            </div>
+                            <Divider/>
 
-                                        axios({
-                                            url: 'car/addCar',
-                                            method: 'post',
-                                            contentType : 'application/json',
-                                            data: carDetails,
-                                        })
-                                            .then(function (response) {
-                                                console.log(response);
-                                                alert("Car  added Complete");
-                                            })
-                                            .catch(function (error) {
-                                                console.log(error);
-                                                alert("Car  add fail..")
-                                            });
+                            <div className={classes.button_container}>
+
+                                <Button variant="outlined" style={{color : 'green' , width : '30%'}}>
+                                    Save
+                                </Button>
+
+                                <Button variant="outlined" style={{color : 'blue', width : '30%'}}>
+                                    Update
+                                </Button>
+
+                                <Button variant="outlined" style={{color : 'red' , width : '30%'}}>
+                                    Delete
+                                </Button>
 
 
+                            </div>
 
+                            <div className={classes.clearButtonContainer}>
+                                <Button variant="outlined" style={{color : 'back' , width : '95%'}}>
+                                    Clear All
+                                </Button>
 
-
-                                        var bodyFormData = new FormData();
-
-                                        bodyFormData.append('param' , this.state.frontImage);
-                                        bodyFormData.append('param' , this.state.backImage);
-                                        bodyFormData.append('param' , this.state.sideImage);
-                                        bodyFormData.append('param' , this.state.interiorImage);
-
-                                        axios({
-                                            method: 'post',
-                                            url: 'car/addCarImage?carId=Car001',
-                                            headers: { "Content-Type": "multipart/form-data" },
-                                            data : bodyFormData
-
-
-                                        })
-                                            .then(function (response) {
-                                                console.log(response);
-                                                alert("Car Image added Complete");
-                                            })
-                                            .catch(function (error) {
-                                                console.log(error);
-                                                alert("Car image add fail..")
-                                            });
-                                    }}
-                            >
-                                Upload Images
-
-
-                            </Button>
-
+                            </div>
                         </div>
                     </div>
-                </div>
+
+            </div>
             </div>
         )
     }

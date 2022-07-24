@@ -1,0 +1,168 @@
+import redCar from "../../assets/image/redCar.jpg"
+import whiteCar from "../../assets/image/whiteCar.jpg"
+
+export const styleSheet = {
+    /*imgWhiteCar:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'bottom  ',
+        height: '88px',
+        width: '20500px',
+        position: 'relative',
+        background: "url(" + whiteCar + ")no-repeat center center /!*fixed*!/",
+        backgroundSize: 'cover',
+        top: '230px',
+        backgroundColor: "#ecc0ba",
+        right:"-678px"
+    },*/
+    btn_reserveNow:{
+        height:'67px',
+        width:'888px',
+        right:'-788px',
+        position: 'relative',
+        top:'-179px'
+
+    },
+    text_container: {
+        left: '1200px',
+        fontsize: '428%',
+        position: 'relative',
+        height: '78px',
+        bottom: '333px',
+    },
+
+    divider_container: {
+        height: '3%',
+        position: 'relative',
+        backgroundColor: '#0b1106'
+    },
+    body_container: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'bottom  ',
+        height: '885px',
+        width: '994px',
+        position: 'relative',
+        background: "url(" + redCar + ")no-repeat center center /*fixed*/",
+        backgroundSize: 'cover',
+        top: '120px',
+        backgroundColor: "#ecc0ba"
+    },
+
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100vw',
+        height: '100vh'
+
+    },
+
+    topHeaderWrapper: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '58px',
+        backgroundColor: 'rgba(23,20,23,0.94)'
+    },
+    contact_container: {
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#161c2f',
+        height: '100%',
+        width: '22%'
+    },
+    after: {
+        width: '0',
+        height: '0',
+        borderTop: '29px solid transparent',
+        borderLeft: '30px solid #5476EC',
+        borderBottom: '29px solid transparent'
+    },
+    header_right: {
+        /*  backgroundColor : 'blue',*/
+        flexGrow: '1',
+        height: '70%',
+        display: 'flex',
+    },
+    sm_icons_left: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        listStyle: 'none',
+
+
+    },
+    right_icons: {
+        width: "800px",
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+
+    },
+
+    spacing_div: {
+        flexGrow: 1
+    },
+    loginButton: {
+
+        color: '#898',
+
+        TbPower: {
+            color: '#898'
+        },
+        flexShrink: 1
+    },
+    registerButton: {
+        color: '#898',
+
+        TbPower: {
+            color: '#898'
+        },
+        flexShrink: 1
+    },
+    HiSearch: {
+        width: '5%',
+        height: '50%',
+        color: '#898',
+        flexShrink: 1,
+        cursor: 'pointer',
+    },
+
+
+    //nav bar container css
+
+    navBar_container: {
+        height: '15%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+
+    },
+    navBar_component: {
+        backgroundColor: "white",
+        height: '100%',
+        width: '90%',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+
+
+    },
+    navbar_options: {
+        width: '60%',
+        height: "100%",
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: "center",
+        listStyleType: 'none',
+        underline: 'none',
+        textDecoration: 'none',
+        justifyContent: 'space-around'
+    },
+}

@@ -1,22 +1,25 @@
 
 import React from "react";
-import Dashboard from "../pages/dashboard/dashboard";
-import CarAdd from "../pages/admin/carAdd/carAdd";
+import Dashboard from "../pages/home22222/home22222";
 import Login from "../pages/login/login";
 import Modal from "@material-ui/core/Modal";
 import ManageCar from "../pages/admin/manageCar";
+import HomeNavBar from "../components/admin/HomeNavBar";
+import Home from "../pages/home/home";
+import Home22222 from "../pages/home22222/home22222";
 
 
 function App() {
     return (
-
-        /*<Dashboard/>*/
-        /*<CarAdd/>*/
-        /*<Login/>*/
+        /*<HomeNavBar/>*/
+       /* <Dashboard/>*/
+       /* <Login/>*/
         /*<Register/>*/
-        <ManageCar/>
+        /*<ManageCar/>*/
+        <driverManage/>
     /*<AdminNavBar/>*/
-       /* <home/>*/
+       /* <Home/>*/
+       /* <Home22222/>*/
 
     );
 }
