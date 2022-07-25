@@ -15,8 +15,8 @@ function App() {
        /* <Dashboard/>*/
        /* <Login/>*/
         /*<Register/>*/
-        /*<ManageCar/>*/
-        <driverManage/>
+        <ManageCar/>
+        /*<driverManage/>*/
     /*<AdminNavBar/>*/
        /* <Home/>*/
        /* <Home22222/>*/

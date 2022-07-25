@@ -24,12 +24,20 @@ export const styleSheet = {
         top:'-179px'
 
     },
+    btn_reserve:{
+
+    },
     text_container: {
         left: '1200px',
-        fontsize: '428%',
+
+
         position: 'relative',
         height: '78px',
         bottom: '333px',
+    },
+    btn_text:{
+        fontSize: '3rem%',
+        fontWeight: '500%',
     },
 
     divider_container: {

@@ -102,7 +102,7 @@ class Home extends Component {
                     {/*<div className={classes.divider_container}></div>*/}
 
                     <div className={classes.text_container}>
-                        <h1><b>Reserve Car & GET OFFER 50% OFF</b></h1>
+                        <b><h1 className={classes.btn_text}>Reserve Car & GET OFFER 50% OFF</h1></b>
                     </div>
 
                     <div className={classes.btn_reserveNow}>

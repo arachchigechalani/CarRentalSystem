@@ -19,41 +19,49 @@ export const styleSheet = {
         height: '0.5%',
         backgroundColor: '#0b1106'
     },
-
+    table_container:{
+        position: 'relative',
+        top: '350px',
+        width: '2090px',
+    },
 
     form_Container: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-around',
         width: '100%',
         height: '100%',
-        backgroundColor: '#eee8e6',
-        borderRadius: '3px'
+        backgroundColor: '#ececec',
+        borderRadius: '3px',
+        top:'888px'
     },
 
     form_backGround_left: {
         marginLeft: '10px',
         display: 'flex',
-        width: '60%',
-        height: '90%',
+        width: '1500px',
+        height: '850px',
         backgroundColor: '#faecdc',
         boxShadow: '1px 1px 3px 1.5px',
         //borderRadius : '5px',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        top:'180px',
+        position:'relative',
     },
 
     form_backGround_right: {
         display: 'flex',
-        width: '35%',
-        height: '90%',
+        width: '567px',
+        height: '850px',
         backgroundColor: 'white',
         flexDirection: 'column',
         alignItems: 'center',
-
-        justifyContent: 'space-between'
-
+        justifyContent: 'space-between',
+        top:'180px',
+        position:'relative',
     },
+
 
     title_container: {
         display: 'flex',
@@ -73,31 +81,31 @@ export const styleSheet = {
         borderRadius: '10px',
         boxShadow: '2px 2px 5px 1px',
     },
-    search_container : {
-        marginTop : '20px',
-        height : '20%',
-        display : 'flex',
-        flexDirection : 'row',
-        alignItems : 'center',
-        justifyContent : 'space-evenly'
+    search_container: {
+        marginTop: '20px',
+        height: '20%',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
 
 
     },
 
-    button_container : {
-        marginTop : '20px',
-        height : '25%',
-        display : 'flex',
-        flexDirection : 'row',
-        alignItems : 'center',
-        justifyContent : 'space-evenly'
+    button_container: {
+        marginTop: '20px',
+        height: '25%',
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly'
     },
 
-    clearButtonContainer : {
-        display : 'flex',
-        flexDirection : 'row',
-        alignItems : 'center',
-        justifyContent : 'center',
+    clearButtonContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
 
 
     },
@@ -131,8 +139,8 @@ export const styleSheet = {
         justifyContent: 'space-evenly'
     },
     formTextField2Container: {
-        marginTop: '10px',
-        marginBottom: '10px',
+        marginTop: '2px',
+        marginBottom: '2px',
         /*   backgroundColor : '#9e62ce',*/
         display: 'flex',
         flexDirection: 'row',
@@ -142,7 +150,7 @@ export const styleSheet = {
     },
     formDividerText2Container: {
         height: '5%',
-        marginTop: '70px',
+        marginTop: '20px',
         backgroundColor: 'white',
         display: 'flex',
         flexDirection: 'row',
