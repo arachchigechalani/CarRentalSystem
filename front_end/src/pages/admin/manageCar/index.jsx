@@ -3,14 +3,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {styleSheet} from "./style";
 import Logo from "../../../assets/icon/logo.jpg"
 import Button from "@material-ui/core/Button";
-import {TbHome} from "react-icons/tb";
-import {GrUserManager} from "react-icons/gr";
-import {AiFillCar} from "react-icons/ai";
-import {FaUserEdit} from "react-icons/fa";
-import {VscRequestChanges} from "react-icons/vsc";
 import red from "@material-ui/core/colors/red";
 import blue from "@material-ui/core/colors/blue";
-import MenuListComposition from "../../../components/admin/MenuList";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
@@ -20,7 +14,7 @@ import CarService from "../../../services/CarService";
 import Table from 'react-bootstrap/Table';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "@material-ui/core/Container";
+import ViewAllCarPopUpTable from "../../../components/admin/ViewAllCarPopUpTable";
 
 class ManageCar extends Component {
     constructor(props) {
@@ -52,6 +46,31 @@ class ManageCar extends Component {
             }
         }
     }
+
+    changeStateCarDetails(vehicleId,vehicleType,numofP,transmissionType,fuelType,registerNum,color,pricesForDaily,pricesForMonthly,freeMileage,priceForExtraKm,frontImage,backImage,sideImage,interiorImage){
+        this.setState({
+            carDetails : {
+                vehicleId : vehicleId,
+                vehicleType : vehicleType,
+                numofP : numofP,
+                transmissionType : transmissionType,
+                fuelType :fuelType,
+                registerNum : registerNum,
+                color : color,
+                pricesForDaily : pricesForDaily,
+                pricesForMonthly : pricesForMonthly,
+                freeMileage : freeMileage,
+                priceForExtraKm : priceForExtraKm,
+            },
+            frontView : frontImage,
+            backView : backImage,
+            sideView : sideImage,
+            interiorView : interiorImage,
+
+        })
+    }
+
+
 
     addCarImage = async (carId) => {
 
@@ -148,12 +167,15 @@ class ManageCar extends Component {
                                                     id="outlined-required"
                                                     label="Vehical ID"
                                                     variant="outlined"
-
-                                                    onChange={(e) => {
-                                                        this.state.carDetails.vehicleId = e.target.value;
+                                                    InputLabelProps={{
+                                                        shrink: true,
                                                     }}
-
-
+                                                    value={this.state.carDetails.vehicleId}
+                                                    onChange={(e) => {
+                                                        let formData = this.state.carDetails
+                                                        formData.vehicleId = e.target.value
+                                                        this.setState({ formData })
+                                                    }}
                                                 />
                                             </div>
                                             <div>
@@ -162,12 +184,15 @@ class ManageCar extends Component {
                                                     id="outlined-required"
                                                     label="Type"
                                                     variant="outlined"
-
-                                                    onChange={(e) => {
-                                                        this.state.carDetails.vehicleType = e.target.value;
+                                                    InputLabelProps={{
+                                                        shrink: true,
                                                     }}
-
-
+                                                    value={this.state.carDetails.vehicleType}
+                                                    onChange={(e) => {
+                                                        let formData = this.state.carDetails
+                                                        formData.vehicleType = e.target.value
+                                                        this.setState({ formData })
+                                                    }}
                                                 />
                                             </div>
                                             <div>
@@ -176,19 +201,22 @@ class ManageCar extends Component {
                                                     id="outlined-required"
                                                     label="Num of Passengers"
                                                     variant="outlined"
-
-                                                    onChange={(e) => {
-                                                        this.state.carDetails.numofP = e.target.value;
+                                                    InputLabelProps={{
+                                                        shrink: true,
                                                     }}
-
-
+                                                    value={this.state.carDetails.numofP}
+                                                    onChange={(e) => {
+                                                        let formData = this.state.carDetails
+                                                        formData.numofP = e.target.value
+                                                        this.setState({ formData })
+                                                    }}
                                                 />
                                             </div>
 
                                         </div>
 
 
-                                        <Autocomplete
+                                        {/*<Autocomplete
                                             id="combo-box-demo"
                                             size={"small"}
 
@@ -198,13 +226,33 @@ class ManageCar extends Component {
                                             getOptionLabel={(option) => option.title}
                                             style={{width: 180}}
                                             renderInput={(params) => <TextField {...params} label="Transmission type."
-                                                                                variant="outlined"/>}
+                                                                                                                                                                                            variant="outlined"/>}
+                                            value={this.state.carDetails.transmissionType}
+                                            onChange={(e) => {
+                                                this.setState({
+                                                    carDetails : {
+                                                        transmissionType : e.target.value
+                                                    }
+                                                })
+                                            }}
+                                        />*/}
 
-                                            onChange={(event, value) =>
-                                                this.state.carDetails.transmissionType = value.title}
+                                        <TextField
+                                            label="Transmission type." variant="outlined" value={this.state.carDetails.transmissionType}
+                                            size={"small"}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
 
+                                            onChange={(e) => {
+                                                let formData = this.state.carDetails
+                                                formData.transmissionType = e.target.value
+                                                this.setState({ formData })
+                                            }}
                                         />
-                                        <Autocomplete
+
+
+                                        {/*<Autocomplete
                                             id="combo-box-demo"
                                             size={"small"}
 
@@ -212,14 +260,35 @@ class ManageCar extends Component {
                                                 {title: 'Diesel'},
                                                 {title: "Petrol"}]}
                                             getOptionLabel={(option) => option.title}
-                                            style={{width: 136}}
-                                            renderInput={(params) => <TextField {...params} label="Fuel type."
-                                                                                variant="outlined"/>}
+                                            style={{width: 180}}
+                                            renderInput={(params) => <TextField {...params}
+                                            label="Fuel type."
+                                            variant="outlined"/>}
+                                            value={this.state.carDetails.fuelType}
+                                            onChange={(e) => {
+                                                this.setState({
+                                                    carDetails : {
+                                                        fuelType : e.target.value
+                                                    }
+                                                })
+                                            }}
+                                        />*/}
 
-                                            onChange={(event, value) =>
-                                                this.state.carDetails.fuelType = value.title}
+                                        <TextField
+                                            label="Fuel type." variant="outlined" value={this.state.carDetails.fuelType}
+                                            size={"small"}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
 
+                                            onChange={(e) => {
+                                                let formData = this.state.carDetails
+                                                formData.fuelType = e.target.value
+                                                this.setState({ formData })
+                                            }}
                                         />
+
+
 
                                         <TextField
                                             size={"small"}
@@ -228,9 +297,14 @@ class ManageCar extends Component {
                                             defaultValue="Hello World"
                                             style={{width: 200}}
                                             variant="outlined"
-
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            value={this.state.carDetails.registerNum}
                                             onChange={(e) => {
-                                                this.state.carDetails.registerNum = e.target.value;
+                                                let formData = this.state.carDetails
+                                                formData.registerNum = e.target.value
+                                                this.setState({ formData })
                                             }}
 
                                         />
@@ -241,10 +315,15 @@ class ManageCar extends Component {
                                             label="Color"
                                             defaultValue="Hello World"
                                             variant="outlined"
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
                                             style={{width: 200}}
-
+                                            value={this.state.carDetails.color}
                                             onChange={(e) => {
-                                                this.state.carDetails.color = e.target.value;
+                                                let formData = this.state.carDetails
+                                                formData.color = e.target.value
+                                                this.setState({ formData })
                                             }}
                                         />
 
@@ -264,9 +343,14 @@ class ManageCar extends Component {
                                             id="outlined-required"
                                             label="Price Of Daily"
                                             variant="outlined"
-
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            value={this.state.carDetails.pricesForDaily}
                                             onChange={(e) => {
-                                                this.state.carDetails.pricesForDaily = e.target.value;
+                                                let formData = this.state.carDetails
+                                                formData.pricesForDaily = e.target.value
+                                                this.setState({ formData })
                                             }}
                                         />
                                         <TextField
@@ -275,9 +359,14 @@ class ManageCar extends Component {
                                             id="outlined-required"
                                             label="Price Of Monthly"
                                             variant="outlined"
-
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            value={this.state.carDetails.pricesForMonthly}
                                             onChange={(e) => {
-                                                this.state.carDetails.pricesForMonthly = e.target.value;
+                                                let formData = this.state.carDetails
+                                                formData.pricesForMonthly = e.target.value
+                                                this.setState({ formData })
                                             }}
                                         />
 
@@ -287,9 +376,14 @@ class ManageCar extends Component {
                                             id="outlined-required"
                                             label="Km"
                                             variant="outlined"
-
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            value={this.state.carDetails.freeMileage}
                                             onChange={(e) => {
-                                                this.state.carDetails.freeMileage = e.target.value;
+                                                let formData = this.state.carDetails
+                                                formData.freeMileage = e.target.value
+                                                this.setState({ formData })
                                             }}
                                         />
 
@@ -299,9 +393,14 @@ class ManageCar extends Component {
                                             id="outlined-required"
                                             label="Rs/="
                                             variant="outlined"
-
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                            value={this.state.carDetails.priceForExtraKm}
                                             onChange={(e) => {
-                                                this.state.carDetails.priceForExtraKm = e.target.value;
+                                                let formData = this.state.carDetails
+                                                formData.priceForExtraKm = e.target.value
+                                                this.setState({ formData })
                                             }}
                                         />
                                     </div>
@@ -504,7 +603,12 @@ class ManageCar extends Component {
 
                                         <div className={classes.button_container}>
 
-                                            <Button variant="outlined" style={{color: 'green', width: '30%'}}>
+                                            <Button variant="outlined" style={{color: 'green', width: '30%'}}
+                                                    onClick={async () => {
+                                                        this.addCar();
+
+                                                    }}
+                                            >
                                                 Save
                                             </Button>
 
@@ -520,14 +624,17 @@ class ManageCar extends Component {
                                         </div>
 
                                         <div className={classes.clearButtonContainer}>
+
+                                            <ViewAllCarPopUpTable data={{changeStateCarDetails:this.changeStateCarDetails.bind(this)}}/>
+
+
+
                                             <Button variant="outlined" style={{color: 'back', width: '95%'}}>
                                                 Clear All
                                             </Button>
 
                                         </div>
                                     </div>
-
-
                                 </div>
                             </Col>
                         </Row>

@@ -7,7 +7,10 @@ import ManageCar from "../pages/admin/manageCar";
 import HomeNavBar from "../components/admin/HomeNavBar";
 import Home from "../pages/home/home";
 import Home22222 from "../pages/home22222/home22222";
-
+import manageCustomer from "../pages/admin/manageCustomer/index";
+import ManageCustomer from "../pages/admin/manageCustomer";
+import ManageDriver from "../pages/admin/manageDriver";
+import RentalRequest from "../pages/admin/rentalRequest";
 
 function App() {
     return (
@@ -15,11 +18,12 @@ function App() {
        /* <Dashboard/>*/
        /* <Login/>*/
         /*<Register/>*/
-        <ManageCar/>
+        /*<RentalRequest/>*/
         /*<driverManage/>*/
     /*<AdminNavBar/>*/
        /* <Home/>*/
        /* <Home22222/>*/
+        <ManageCar/>
 
     );
 }

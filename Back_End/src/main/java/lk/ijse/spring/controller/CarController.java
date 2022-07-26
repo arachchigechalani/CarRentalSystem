@@ -4,6 +4,7 @@ import lk.ijse.spring.dto.CarDTO;
 import lk.ijse.spring.dto.ImageDTO;
 import lk.ijse.spring.dto.RentalRequestDTO;
 import lk.ijse.spring.service.AdminService;
+import lk.ijse.spring.service.CarService;
 import lk.ijse.spring.util.FileDownloadUtil;
 import lk.ijse.spring.util.FileUploadUtil;
 import lk.ijse.spring.util.ResponseUtil;
@@ -29,6 +30,8 @@ import java.util.List;
 public class CarController {
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private CarService carService;
 
     @Autowired
     private FileDownloadUtil downloadUtil;
@@ -82,7 +85,9 @@ public class CarController {
     }
 
     @GetMapping(path = "getCarImage" , produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<?> getCarImage(@RequestBody ImageDTO imageDTO){
+    public ResponseEntity<?> getCarImage(@RequestParam String carId, String view){
+
+        ImageDTO imageDTO = new ImageDTO(carId, "car", view);
         Resource fileAsResource = downloadUtil.getFileAsResource(imageDTO);
 
         if (fileAsResource==null){
@@ -134,13 +139,22 @@ public class CarController {
 
 
 
-
-
     @GetMapping(path = "viewRentalRequest", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil viewRentalRequest(){
         List<RentalRequestDTO> allRentalRequest = adminService.getAllRentalRequest();
         return new ResponseUtil(200,"car Delete success",allRentalRequest);
     }
+
+    @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil getAllCars(){
+
+        List<CarDTO> allCars = carService.getAllCars();
+
+        return new ResponseUtil(200,"Get All Cars",allCars);
+
+    }
+
+
 
 
 }
