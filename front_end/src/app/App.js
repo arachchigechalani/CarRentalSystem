@@ -23,7 +23,7 @@ function App() {
     /*<AdminNavBar/>*/
        /* <Home/>*/
        /* <Home22222/>*/
-        <ManageCar/>
+        <ManageCustomer/>
 
     );
 }

@@ -76,17 +76,19 @@ export default function ViewAllCarPopUpTable(props) {
     }
 
     const getAllCars=async () =>{
+        rows.length=0;
         let res = await carService.getAllCar();
-        if (res.data.code==200){
+        if (res.code==undefined){
+
             //console.log(res.data.data[0].vehicleId);
             var i=0;
             for (let dataKey of res.data.data) {
-                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm,dataKey.registerNumber,dataKey.color)
-                i++;
+                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm);i++;
             }
             setShow(true)
+        }else {
+            alert("Car Not Found")
         }
-
     }
 
     const [show, setShow] = useState(false);
