@@ -17,45 +17,12 @@ import java.util.List;
 @Service
 public class AdminServiceImpl implements AdminService {
 
-    @Autowired
-    private CarRepo carRepo;
 
     @Autowired
     private ModelMapper mapper;
 
     @Autowired
     private RentalRequestRepo rentalRequestRepo;
-
-    @Override
-    public void addCar(CarDTO carDTO) {
-        if (!carRepo.existsById(carDTO.getVehicleId())) {
-            carRepo.save(mapper.map(carDTO, Car.class));
-        } else {
-            throw new RuntimeException("Car Already Exist");
-        }
-    }
-
-    @Override
-    public void editCar(CarDTO carDTO) {
-        if (carRepo.existsById(carDTO.getVehicleId())) {
-
-            carRepo.save(mapper.map(carDTO, Car.class));
-
-        } else {
-            throw new RuntimeException("Car not found...");
-        }
-    }
-
-    @Override
-    public void deleteCar(CarDTO carDTO) {
-        if (carRepo.existsById(carDTO.getVehicleId())) {
-
-            carRepo.delete(mapper.map(carDTO, Car.class));
-
-        } else {
-            throw new RuntimeException("Car not found...");
-        }
-    }
 
     @Override
     public List<RentalRequestDTO> getAllRentalRequest() {

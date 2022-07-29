@@ -2,6 +2,21 @@ import  axios from "../axios";
 
 class CustomerService {
 
+    ifExistCustomerUserAccount= async (userName) =>{
+        const promise = new Promise((resolve, reject) => {
+            axios.get('customer/ifExistUserAccount?userName='+userName)
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
+
     registerCustomer= async (data) => {
         const promise = new Promise((resolve, reject) => {
             axios.post('customer/addCustomer',data)

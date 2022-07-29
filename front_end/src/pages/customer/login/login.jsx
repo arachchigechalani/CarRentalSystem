@@ -139,7 +139,7 @@ class Login extends Component {
                     <div>
 
                         <div className={classes.carImage}>
-                            <img src="../../assets/image/blackCar.jpg" alt=""/>
+                            <img src="../../../assets/image/blackCar.jpg" alt=""/>
                         </div>
 
 

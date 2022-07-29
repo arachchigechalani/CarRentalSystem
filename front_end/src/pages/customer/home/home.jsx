@@ -10,8 +10,8 @@ import {HiSearch} from "react-icons/hi";
 import Container from "@material-ui/core/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import FindCarForm from "./style.css"
-import HomeNavBar from "../../components/admin/HomeNavBar";
+import HomeNavBar from "../../../components/admin/HomeNavBar";
+import RegisterCustomer from "../../../components/customer/RegisterCustomer/RegisterCustomer";
 
 class Home extends Component {
 
@@ -28,7 +28,7 @@ class Home extends Component {
 
                     <div className={classes.contact_container}>
 
-                        <p style={{color: 'white', marginLeft: '23%'}}><h3>Call Us : 041 251 0152</h3></p>
+                        <p style={{color: 'white', marginLeft: '23%'}}><h4>Call Us : 041 251 0152</h4></p>
 
                     </div>
 
@@ -64,22 +64,10 @@ class Home extends Component {
                                         e.target.style.color = "#898"
                                         console.log("cancel")
                                     }}
-                            ><h4>Login</h4></Button>
+                            >Login</Button>
 
-                            <Button className={classes.registerButton}
 
-                                    startIcon={<RiAddCircleFill/>}
-
-                                /*onMouseEnter={(e) =>{
-                                    e.target.style.color='white'
-                                    console.log("ok")
-                                }}
-*/
-                                /*onMouseLeave={(e) =>{
-                                    e.target.style.color="#898"
-                                    console.log("cancel")
-                                }}*/
-                            ><h4>Register</h4></Button>
+                              <RegisterCustomer/>
 
 
                             <HiSearch className={classes.HiSearch}/>
@@ -95,39 +83,24 @@ class Home extends Component {
                 <HomeNavBar/>
 
                 <div className={classes.body_container}>
-                    {/*<div className={classes.imgWhiteCar}>
-                        <img src="../../assets/image/whiteCar.jpg" alt=""/>
+                    {/*<div className={classes.imgRedCar}>
+                        <img src="../../../assets/image/redCar.jpg" alt=""/>
                     </div>*/}
 
-                    {/*<div className={classes.divider_container}></div>*/}
-
-                    <div className={classes.text_container}>
-                        <b><h1 className={classes.btn_text}>Reserve Car & GET OFFER 50% OFF</h1></b>
-                    </div>
-
-                    <div className={classes.btn_reserveNow}>
-                        <button type="button" className="btn btn-warning">Reserve Now</button>
-                    </div>
-
-                </div>
-                >
-
-                {/*<div className="hero__form">
-                    <Container>
-                        <Row className="form__row">
-                            <Col lg="4" md="4">
-                                <div className="find__cars-left">
-                                    <h2>Find your best car here</h2>
-                                </div>
-                            </Col>
-
-                            <Col lg="8" md="8" sm="12">
-                                <FindCarForm />
-                            </Col>
-                        </Row>
-                    </Container>
-                </div>
+{/*
+                    <div className={classes.divider_container}></div>
 */}
+
+                    {/*<div className={classes.text_container}>
+                        <b><h1 className={classes.btn_text}>Reserve Car & GET OFFER 50% OFF</h1></b>
+                    </div>*/}
+
+                   {/* <div className={classes.btn_reserveNow}>
+                        <button type="button" className="btn btn-warning">Reserve Now</button>
+                    </div>*/}
+
+                </div>
+
             </Fragment>
         )
     }

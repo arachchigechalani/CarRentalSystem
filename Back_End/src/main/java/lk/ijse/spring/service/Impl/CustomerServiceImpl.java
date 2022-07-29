@@ -16,6 +16,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -38,22 +39,32 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public void saveCustomer(RegisterCustomerDTO registerCustomerDTO) {
-        if (!repo.existsById(registerCustomerDTO.getId())) {
+    public void existUserCustomerAccount(String userName){
 
-            repo.save(mapper.map(registerCustomerDTO, Customer.class));
-
-            if (!customerUserAccountRepo.existsById(registerCustomerDTO.getUserName())) {
-                //CustomerUserAccount customerUserAccount = new CustomerUserAccount(customerUserAccDTO.getUserName(),customerUserAccDTO.getPassword(),mapper.map(customerUserAccDTO,Customer.class));
-                customerUserAccountRepo.save(mapper.map(registerCustomerDTO, CustomerUserAccount.class));
-            } else {
-                throw new RuntimeException("UserAccount Already Exit");
-            }
-
-        } else {
-            throw new RuntimeException("Customer Already Exit");
+        boolean b = customerUserAccountRepo.existsById(userName);
+        if (b==true){
+            throw new RuntimeException("UserAccount Already Exist");
         }
     }
+
+    @Transactional
+    @Override
+    public void saveCustomer(RegisterCustomerDTO registerCustomerDTO){
+        if(!repo.existsById(registerCustomerDTO.getId())) {
+
+            repo.save(mapper.map(registerCustomerDTO,Customer.class));
+
+            if (!customerUserAccountRepo.existsById(registerCustomerDTO.getUserName())) {
+                customerUserAccountRepo.save(mapper.map(registerCustomerDTO,CustomerUserAccount.class));
+
+            }else {
+                throw new RuntimeException("Customer Already Exist");
+            }
+        }else {
+            throw new RuntimeException("UserAccount Already Exist");
+        }
+    }
+
 
     @Override
     public void updateCustomerInformation(CustomerDTO customerDTO) {

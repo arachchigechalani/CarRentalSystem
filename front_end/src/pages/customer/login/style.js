@@ -1,4 +1,4 @@
-import blackCar from "../../assets/image/blackCar.jpg";
+import blackCar from "../../../assets/image/blackCar.jpg";
 import 'bootstrap/dist/css/bootstrap.css';
 
 export const styleSheet = {

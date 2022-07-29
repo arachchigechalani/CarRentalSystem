@@ -1,6 +1,7 @@
 package lk.ijse.spring.service.Impl;
 
 import lk.ijse.spring.dto.CarDTO;
+import lk.ijse.spring.dto.RentalRequestDTO;
 import lk.ijse.spring.entity.Car;
 import lk.ijse.spring.repo.CarRepo;
 import lk.ijse.spring.service.CarService;
@@ -31,22 +32,39 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void editCar(CarDTO carDTO) {
-
+        if (carRepo.existsById(carDTO.getVehicleId())){
+            carRepo.save(mapper.map(carDTO,Car.class));
+        }else{
+            throw new RuntimeException("Car not found...");
+        }
     }
+
+
 
     @Override
-    public void deleteCar(CarDTO carDTO) {
-
+    public void deleteCar(String carId) {
+        if (carRepo.existsById(carId)){
+            carRepo.deleteById(carId);
+        }else{
+            throw new RuntimeException("Car not found...");
+        }
     }
+
 
     @Override
     public List<CarDTO> getAllCars() {
-        List<Car> all = carRepo.findAll();
-        List<CarDTO> allcars=new ArrayList<>();
-        for (Car car : all) {
-            allcars.add(mapper.map(car,CarDTO.class));
+        long count=carRepo.count();
+        if (count!=0){
+            List<Car> all = carRepo.findAll();
+            List<CarDTO> allcars=new ArrayList<>();
+            for (Car car : all) {
+                allcars.add(mapper.map(car,CarDTO.class));
+            }
+
+            return allcars;
+        }else{
+            throw new RuntimeException("Cars Empty...");
         }
 
-        return allcars;
     }
 }

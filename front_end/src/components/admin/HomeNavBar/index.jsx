@@ -3,8 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import React, {Component} from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {styleSheet} from "../navBar/style";
-
+import {styleSheet} from "./style";
 
 
 class HomeNavBar extends Component{
@@ -16,8 +15,8 @@ class HomeNavBar extends Component{
         const {classes}=this.props
 
         return(
-             <Navbar bg="primary" variant="dark">
-                    <Container>
+                <Navbar bg="secondary" variant="dark">
+                    <Container className={classes.nav_home}>
                         <Navbar.Brand href="#home"><h1>Home</h1></Navbar.Brand>
                         <Nav className="me-auto">
                             <Nav.Link href="#home"><h1>Car</h1></Nav.Link>
@@ -27,7 +26,6 @@ class HomeNavBar extends Component{
                         </Nav>
                     </Container>
                 </Navbar>
-
         )
     }
 }

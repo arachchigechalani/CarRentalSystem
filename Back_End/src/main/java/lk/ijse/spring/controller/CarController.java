@@ -28,8 +28,7 @@ import java.util.List;
 @RequestMapping("car")
 @CrossOrigin
 public class CarController {
-    @Autowired
-    private AdminService adminService;
+
     @Autowired
     private CarService carService;
 
@@ -46,7 +45,7 @@ public class CarController {
     @PostMapping(path = "addCar", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil addCar(@RequestBody CarDTO carDTO) {
 
-        adminService.addCar(carDTO);
+        carService.addCar(carDTO);
 
         return new ResponseUtil(200, "Car Added complete", null);
     }
@@ -96,14 +95,17 @@ public class CarController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(fileAsResource);
     }
 
+//----------------------------------------------------------------------------------------
     @PutMapping(path = "updateCar", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil editCar(CarDTO carDTO){
-        adminService.editCar(carDTO);
+    public ResponseUtil updateCar(@RequestBody CarDTO carDTO){
+        carService.editCar(carDTO);
         return new ResponseUtil(200,"car Details Updated",null);
     }
+//----------------------------------------------------------------------------------------
+
 
     @SneakyThrows
-    @PutMapping(path = "updateCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "updateCarImage",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateCarImage(@RequestParam(value = "carImage") MultipartFile multipartFile , @RequestParam("carId") String carId ,@RequestParam("view") String view){
 
         String pathDirectory="D:\\2 sem projects\\SpringCarRental_Front_Back\\CarRentalSystem\\Back_End\\src\\main\\resources\\static\\images\\CarImage\\";
@@ -118,8 +120,8 @@ public class CarController {
 
 
     @DeleteMapping(path = "deleteCar",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil deleteCar(CarDTO carDTO){
-        adminService.deleteCar(carDTO);
+    public ResponseUtil deleteCar(@RequestParam String carId){
+        carService.deleteCar(carId);
         return new ResponseUtil(200,"car Delete success",null);
     }
 
@@ -139,11 +141,11 @@ public class CarController {
 
 
 
-    @GetMapping(path = "viewRentalRequest", produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@GetMapping(path = "viewRentalRequest", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil viewRentalRequest(){
-        List<RentalRequestDTO> allRentalRequest = adminService.getAllRentalRequest();
+        List<RentalRequestDTO> allRentalRequest = carService.getAllRentalRequest();
         return new ResponseUtil(200,"car Delete success",allRentalRequest);
-    }
+    }*/
 
     @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCars(){

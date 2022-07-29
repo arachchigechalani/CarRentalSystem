@@ -12,4 +12,7 @@ public interface CustomerService {
     void updateCustomerInformation(CustomerDTO customer);
     List<Car> viewCars();
     void rentalRequest(RentalRequestDTO rentalRequestDTO);
+
+    void existUserCustomerAccount(String userName);
+
 }

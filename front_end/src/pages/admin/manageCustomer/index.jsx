@@ -21,9 +21,6 @@ class ManageCustomer extends Component {
             IDFrontView: null,
             IDBackView: null,
 
-
-
-
             customerDerails :{
                 id:'',
                 email : '',
@@ -54,11 +51,10 @@ class ManageCustomer extends Component {
 
 
         let res = await CustomerService.registerCustomer(customerDetails);
-        if (res.data.code == 200) {
+        if (res.code != 'ERR_BAD_REQUEST') {
             alert(res.data.message);
-
         } else {
-            alert(res.data.message);
+            alert(res.response.data.message);
         }
     }
 

@@ -25,6 +25,16 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
+
+
+
+
+    @GetMapping(path = "ifExistUserAccount")
+    public ResponseUtil ifExistUserAccount(@RequestParam String userName){
+        customerService.existUserCustomerAccount(userName);
+        return new ResponseUtil(200,"UserAccount Free",null);
+    }
+
     @PostMapping(path = "addCustomer",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil registerCustomer(@RequestBody RegisterCustomerDTO registerCustomerDTO) {
 

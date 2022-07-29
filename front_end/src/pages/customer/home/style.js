@@ -1,5 +1,5 @@
-import redCar from "../../assets/image/redCar.jpg"
-import whiteCar from "../../assets/image/whiteCar.jpg"
+import backcarsurround from "../../../assets/image/blackcarsurround.jpg"
+import whiteCar from "../../../assets/image/whiteCar.jpg"
 
 export const styleSheet = {
     /*imgWhiteCar:{
@@ -29,8 +29,6 @@ export const styleSheet = {
     },
     text_container: {
         left: '1200px',
-
-
         position: 'relative',
         height: '78px',
         bottom: '333px',
@@ -40,23 +38,26 @@ export const styleSheet = {
         fontWeight: '500%',
     },
 
-    divider_container: {
+    /*divider_container: {
         height: '3%',
         position: 'relative',
         backgroundColor: '#0b1106'
-    },
+    },*/
     body_container: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'bottom  ',
-        height: '885px',
-        width: '994px',
+        height: '593px',
+        width: '100%',
         position: 'relative',
-        background: "url(" + redCar + ")no-repeat center center /*fixed*/",
+        background: "url(" + backcarsurround + ")no-repeat   fixed",
         backgroundSize: 'cover',
-        top: '120px',
-        backgroundColor: "#ecc0ba"
+        backgroundColor: "#e2bcb7"
+    },
+
+    imgRedCar:{
+
     },
 
     container: {
@@ -72,7 +73,7 @@ export const styleSheet = {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '58px',
+        height: '40px',
         backgroundColor: 'rgba(23,20,23,0.94)'
     },
     contact_container: {
@@ -80,7 +81,8 @@ export const styleSheet = {
         justifyContent: 'center',
         backgroundColor: '#161c2f',
         height: '100%',
-        width: '22%'
+        width: '22%',
+        marginTop:'1px'
     },
     after: {
         width: '0',
@@ -101,6 +103,7 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         listStyle: 'none',
+        marginBottom:'1px'
 
 
     },
@@ -117,11 +120,10 @@ export const styleSheet = {
         flexGrow: 1
     },
     loginButton: {
-
-        color: '#898',
+        color: '#889988',
 
         TbPower: {
-            color: '#898'
+            color: '#d4e0d4'
         },
         flexShrink: 1
     },
@@ -129,12 +131,12 @@ export const styleSheet = {
         color: '#898',
 
         TbPower: {
-            color: '#898'
+            color: '#daeeda'
         },
         flexShrink: 1
     },
     HiSearch: {
-        width: '5%',
+        width: '8%',
         height: '50%',
         color: '#898',
         flexShrink: 1,

@@ -2,10 +2,10 @@ export const styleSheet= {
 
 
     navBar_container: {
-        backgroundColor: "white",
+        backgroundColor: "red",
         height: '10%',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-evenly',
 
