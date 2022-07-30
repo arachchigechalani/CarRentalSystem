@@ -1,6 +1,5 @@
 
 import React from "react";
-import Login from "../pages/customer/login/login";
 import Modal from "@material-ui/core/Modal";
 import ManageCar from "../pages/admin/manageCar";
 import HomeNavBar from "../components/admin/HomeNavBar";
@@ -13,15 +12,13 @@ import RegisterCustomer from "../components/customer/RegisterCustomer/RegisterCu
 function App() {
     return (
         /*<HomeNavBar/>*/
-       /* <Dashboard/>*/
-        /*<Login/>*/
+        /* <Dashboard/>*/
         /*<RegisterCustomer/>*/
         /*<RentalRequest/>*/
         /*<ManageDriver/>*/
-    /*<AdminNavBar/>*/
+        /*<AdminNavBar/>*/
         <Home/>
-       /* <AddCustomer/>*/
-
+        /* <AddCustomer/>*/
     );
 }
 

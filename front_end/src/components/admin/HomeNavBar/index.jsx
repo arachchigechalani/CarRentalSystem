@@ -19,10 +19,10 @@ class HomeNavBar extends Component{
                     <Container className={classes.nav_home}>
                         <Navbar.Brand href="#home"><h1>Home</h1></Navbar.Brand>
                         <Nav className="me-auto">
-                            <Nav.Link href="#home"><h1>Car</h1></Nav.Link>
-                            <Nav.Link href="#features"><h1>About</h1></Nav.Link>
-                            <Nav.Link href="#pricing"><h1>Services</h1></Nav.Link>
-                            <Nav.Link href="#pricing"><h1>Contact</h1></Nav.Link>
+                            <Nav.Link href="#home1"><h1>Car</h1></Nav.Link>
+                            <Nav.Link href="#about"><h1>About</h1></Nav.Link>
+                            <Nav.Link href="#service"><h1>Services</h1></Nav.Link>
+                            <Nav.Link href="#contact"><h1>Contact</h1></Nav.Link>
                         </Nav>
                     </Container>
                 </Navbar>

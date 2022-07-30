@@ -12,6 +12,6 @@ export const styleSheet = {
         backgroundColor:'black',
         fontsize:'4px',
         fontStyle:'italic',
-        spacing:'34px'
+        spacing:'34px',
     }
 }

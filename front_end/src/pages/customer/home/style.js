@@ -1,6 +1,12 @@
 import background2 from "../../../assets/image/background2.jpg"
+import redCar from "../../../assets/image/redCar.jpg"
 
 export const styleSheet = {
+    mainWrapper: {
+        zIndex: '70',
+        position: 'fixed',
+        width: '100%'
+    },
 
     btn_reserve: {
         left: '-514px',
@@ -9,16 +15,44 @@ export const styleSheet = {
     },
 
     body_container: {
+        fontFamily: 'var(--bs-font-sans-serif)',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'bottom  ',
-        height: '615px',
+        height: '690px',
         width: '100%',
         position: 'relative',
         background: "url(" + background2 + ")no-repeat   fixed",
         backgroundSize: 'cover',
         backgroundColor: "#e2bcb7"
+    },
+
+    bottom_body: {
+        height: '800px',
+        top: '34px',
+        /*backgroundColor:'green',
+        position:'relative'*/
+    },
+
+    bottom_bodyInner: {
+        marginLeft: '34px',
+        marginBottom: '67px'
+
+    },
+
+    bottom_carImageAbout: {
+        position: 'relative',
+        height: '234px',
+        width: '789px',
+        image: "url(" + redCar + ")no-repeat   fixed",
+
+    },
+
+    bottom_body1: {
+        height: '900px',
+        width: '100%',
+        backgroundColor: '#161c2f'
     },
 
     container: {
