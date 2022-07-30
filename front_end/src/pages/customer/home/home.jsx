@@ -43,7 +43,6 @@ class Home extends Component {
                             <li><AiOutlineInstagram style={{color: 'white', width: '41px', height: '35px'}}/></li>
                             <li><FaLinkedin style={{color: 'white', width: '41px', height: '30px'}}/></li>
 
-
                         </ul>
 
 
@@ -67,7 +66,7 @@ class Home extends Component {
                             >Login</Button>
 
 
-                              <RegisterCustomer/>
+                            <RegisterCustomer/>
 
 
                             <HiSearch className={classes.HiSearch}/>
@@ -83,21 +82,17 @@ class Home extends Component {
                 <HomeNavBar/>
 
                 <div className={classes.body_container}>
-                    {/*<div className={classes.imgRedCar}>
-                        <img src="../../../assets/image/redCar.jpg" alt=""/>
-                    </div>*/}
 
-{/*
-                    <div className={classes.divider_container}></div>
-*/}
 
-                    {/*<div className={classes.text_container}>
-                        <b><h1 className={classes.btn_text}>Reserve Car & GET OFFER 50% OFF</h1></b>
-                    </div>*/}
+                    <div>
+                        <p style={{color: 'white', marginLeft: '18%',marginBottom:'34%',}}><b><h1>Reserve Car & GET OFFER 50% OFF</h1></b></p>
 
-                   {/* <div className={classes.btn_reserveNow}>
+                    </div>
+
+
+                    <div className={classes.btn_reserve}>
                         <button type="button" className="btn btn-warning">Reserve Now</button>
-                    </div>*/}
+                    </div>
 
                 </div>
 

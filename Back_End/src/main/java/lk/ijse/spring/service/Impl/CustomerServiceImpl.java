@@ -47,6 +47,36 @@ public class CustomerServiceImpl implements CustomerService {
         }
     }
 
+    @Override
+    public void existEmail(String email) {
+        String s = repo.existsByEmail(email);
+        if (s!=null){
+            throw new RuntimeException("Email Already Exist");
+        }
+    }
+
+    @Override
+    public String getNewId() {
+        String lastCustId = repo.getLastCustId();
+
+        if (lastCustId!=null){
+            String[] split = lastCustId.split("-");
+            long index = Long.parseLong(split[1]);
+
+            long incrementId=++index;
+
+            if (incrementId<10){
+                return "C-00"+incrementId ;
+            }else if (incrementId>=10 && index<100){
+                return "C-0"+ incrementId ;
+            }else if(incrementId>=100){
+                return "C-"+ incrementId ;
+            }
+            return "C-001";
+        }
+        return "C-001";
+    }
+
     @Transactional
     @Override
     public void saveCustomer(RegisterCustomerDTO registerCustomerDTO){
@@ -54,7 +84,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             repo.save(mapper.map(registerCustomerDTO,Customer.class));
 
-            if (!customerUserAccountRepo.existsById(registerCustomerDTO.getUserName())) {
+            if (!customerUserAccountRepo.existsById(registerCustomerDTO.getUsername())) {
                 customerUserAccountRepo.save(mapper.map(registerCustomerDTO,CustomerUserAccount.class));
 
             }else {
@@ -83,7 +113,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void rentalRequest(RentalRequestDTO rentalRequestDTO) {
 
-        if (!rentalRequestRepo.existsById(rentalRequestDTO.getRequestId())){
+        /*if (!rentalRequestRepo.existsById(rentalRequestDTO.getRequestId())){
 
             Customer customer = repo.getCustomerById(rentalRequestDTO.getCustomerId());
             Car car = carRepo.getVehicleById(rentalRequestDTO.getVehicleId());
@@ -99,7 +129,7 @@ public class CustomerServiceImpl implements CustomerService {
             rentalRequestRepo.save(rentalRequest);
         }else {
             throw new RuntimeException("Rental request Fail");
-        }
+        }*/
 
     }
 

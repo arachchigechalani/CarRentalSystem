@@ -15,7 +15,7 @@ class HomeNavBar extends Component{
         const {classes}=this.props
 
         return(
-                <Navbar bg="secondary" variant="dark">
+                <Navbar bg="black" variant="dark">
                     <Container className={classes.nav_home}>
                         <Navbar.Brand href="#home"><h1>Home</h1></Navbar.Brand>
                         <Nav className="me-auto">

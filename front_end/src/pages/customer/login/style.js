@@ -1,4 +1,4 @@
-import blackCar from "../../../assets/image/blackCar.jpg";
+import homeImage from "../../../assets/image/homeImage.jpg";
 import 'bootstrap/dist/css/bootstrap.css';
 
 export const styleSheet = {
@@ -49,7 +49,7 @@ export const styleSheet = {
         top: '240px',
         right: '500px',
         position: 'relative',
-        background: "url(" + blackCar + ")no-repeat center center /*fixed*/",
+        background: "url(" + homeImage + ")no-repeat center center /*fixed*/",
         backgroundSize: 'contain'
 
     },

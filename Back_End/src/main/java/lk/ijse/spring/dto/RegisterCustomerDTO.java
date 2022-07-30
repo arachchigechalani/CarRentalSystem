@@ -19,6 +19,6 @@ public class RegisterCustomerDTO {
     private String drivingLicence;
     private String address;
     private String contactNumber;
-    private String userName;
+    private String username;
     private String password;
 }

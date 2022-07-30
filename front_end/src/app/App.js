@@ -17,7 +17,7 @@ function App() {
         /*<Login/>*/
         /*<RegisterCustomer/>*/
         /*<RentalRequest/>*/
-        /*<driverManage/>*/
+        /*<ManageDriver/>*/
     /*<AdminNavBar/>*/
         <Home/>
        /* <AddCustomer/>*/

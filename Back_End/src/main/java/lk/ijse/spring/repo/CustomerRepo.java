@@ -9,9 +9,9 @@ import javax.transaction.Transactional;
 @Transactional
 public interface CustomerRepo extends JpaRepository<Customer, String> {
 
-    @Query("select c from Customer c where c.id=?1")
-    Customer getCustomerById(String id);
+    @Query("select c.email from Customer c where c.email=?1")
+    public String existsByEmail(String email);
 
-
-
+    @Query(value = "select id from Customer order by id desc LIMIT 1", nativeQuery = true)
+    public String getLastCustId();
 }

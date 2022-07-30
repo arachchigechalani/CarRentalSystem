@@ -1,63 +1,24 @@
-import backcarsurround from "../../../assets/image/blackcarsurround.jpg"
-import whiteCar from "../../../assets/image/whiteCar.jpg"
+import background2 from "../../../assets/image/background2.jpg"
 
 export const styleSheet = {
-    /*imgWhiteCar:{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'bottom  ',
-        height: '88px',
-        width: '20500px',
-        position: 'relative',
-        background: "url(" + whiteCar + ")no-repeat center center /!*fixed*!/",
-        backgroundSize: 'cover',
-        top: '230px',
-        backgroundColor: "#ecc0ba",
-        right:"-678px"
-    },*/
-    btn_reserveNow:{
-        height:'67px',
-        width:'888px',
-        right:'-788px',
-        position: 'relative',
-        top:'-179px'
 
-    },
-    btn_reserve:{
-
-    },
-    text_container: {
-        left: '1200px',
-        position: 'relative',
-        height: '78px',
-        bottom: '333px',
-    },
-    btn_text:{
-        fontSize: '3rem%',
-        fontWeight: '500%',
+    btn_reserve: {
+        left: '-514px',
+        top: '9px',
+        position: 'relative'
     },
 
-    /*divider_container: {
-        height: '3%',
-        position: 'relative',
-        backgroundColor: '#0b1106'
-    },*/
     body_container: {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'bottom  ',
-        height: '593px',
+        height: '615px',
         width: '100%',
         position: 'relative',
-        background: "url(" + backcarsurround + ")no-repeat   fixed",
+        background: "url(" + background2 + ")no-repeat   fixed",
         backgroundSize: 'cover',
         backgroundColor: "#e2bcb7"
-    },
-
-    imgRedCar:{
-
     },
 
     container: {
@@ -82,14 +43,14 @@ export const styleSheet = {
         backgroundColor: '#161c2f',
         height: '100%',
         width: '22%',
-        marginTop:'1px'
+        marginTop: '1px'
     },
     after: {
         width: '0',
         height: '0',
-        borderTop: '29px solid transparent',
-        borderLeft: '30px solid #5476EC',
-        borderBottom: '29px solid transparent'
+        borderTop: '20px solid transparent',
+        borderLeft: '20px solid white',
+        borderBottom: '22px solid transparent'
     },
     header_right: {
         /*  backgroundColor : 'blue',*/
@@ -103,7 +64,7 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         listStyle: 'none',
-        marginBottom:'1px'
+        marginBottom: '1px'
 
 
     },

@@ -84,7 +84,7 @@ export const styleSheet = {
     MuiImageListItemBar_root: {
         display: "flex",
         position: "absolute",
-        background: "rgba(255,0,0,0.5)",
+        background: "rgba(231,225,225,0.5)",
         alignItems: "center",
     },
     search_container : {
