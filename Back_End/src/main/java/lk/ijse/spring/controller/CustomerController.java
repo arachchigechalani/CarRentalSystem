@@ -30,6 +30,12 @@ public class CustomerController {
     @Autowired
     SearchFile searchFile;
 
+    @PostMapping(path = "checkAccount", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public ResponseUtil checkUserAccount(String userName,String password){
+        customerService.checkUserAccount(userName,password);
+        return new ResponseUtil(200,"Login SuccessFull",null);
+    }
+
     @GetMapping(path = "genarateCustId")
     public ResponseUtil getNewCustId(){
         String newId = customerService.getNewId();

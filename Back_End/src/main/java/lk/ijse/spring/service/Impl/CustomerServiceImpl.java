@@ -38,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
     private ModelMapper mapper;
 
 
+
     @Override
     public void existUserCustomerAccount(String userName){
 
@@ -75,6 +76,19 @@ public class CustomerServiceImpl implements CustomerService {
             return "C-001";
         }
         return "C-001";
+    }
+
+    @Override
+    public void checkUserAccount(String userName,String password) {
+        if (customerUserAccountRepo.existsById(userName)){
+            String pass = customerUserAccountRepo.getPassWordByUserName(userName);
+            if (!pass.equals(password)){
+                throw new RuntimeException("Password Incorrect");
+            }
+        }else {
+            throw new RuntimeException("userName Incorrect");
+        }
+
     }
 
     @Transactional

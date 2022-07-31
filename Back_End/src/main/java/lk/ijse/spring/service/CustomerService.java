@@ -19,4 +19,5 @@ public interface CustomerService {
 
     String getNewId();
 
+    void checkUserAccount(String userName,String password);
 }
