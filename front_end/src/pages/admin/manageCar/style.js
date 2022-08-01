@@ -27,7 +27,7 @@ export const styleSheet = {
 
     form_Container: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
         width: '100%',
@@ -40,25 +40,25 @@ export const styleSheet = {
     form_backGround_left: {
         marginLeft: '10px',
         display: 'flex',
-        width: '1500px',
-        height: '850px',
+        width: '1100px',
+        height: '700px',
         backgroundColor: '#faecdc',
         boxShadow: '1px 1px 3px 1.5px',
         //borderRadius : '5px',
         flexDirection: 'column',
-        top:'180px',
+        top:'18px',
         position:'relative',
     },
 
     form_backGround_right: {
         display: 'flex',
-        width: '567px',
-        height: '850px',
+        width: '350px',
+        height: '700px',
         backgroundColor: 'white',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        top:'180px',
+        top:'18px',
         position:'relative',
     },
 
@@ -121,7 +121,7 @@ export const styleSheet = {
 
     },
     formTextFieldContainer: {
-        height: '25%',
+        /*height: '25%',*/
         /*   backgroundColor : '#9e62ce',*/
         display: 'flex',
         flexWrap: 'wrap',
@@ -140,7 +140,7 @@ export const styleSheet = {
     },
     formTextField2Container: {
         marginTop: '2px',
-        marginBottom: '2px',
+
         /*   backgroundColor : '#9e62ce',*/
         display: 'flex',
         flexDirection: 'row',

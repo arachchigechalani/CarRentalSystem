@@ -5,6 +5,7 @@ import {AiFillFacebook, AiOutlineInstagram} from "react-icons/ai";
 import {FaLinkedin, FaTwitterSquare} from "react-icons/fa";
 import Button from "@material-ui/core/Button";
 import {TbPower} from "react-icons/tb";
+import {RiAddCircleFill} from "react-icons/ri";
 import {HiSearch} from "react-icons/hi";
 import Container from "@material-ui/core/Container";
 import Row from "react-bootstrap/Row";
@@ -12,12 +13,9 @@ import Col from "react-bootstrap/Col";
 import HomeNavBar from "../../../components/admin/HomeNavBar";
 import RegisterCustomer from "../../../components/customer/RegisterCustomer/RegisterCustomer";
 import HeroForm from "../../../components/customer/HeroForm";
-import FindCarForm from "../../../components/customer/FindCarForm";
-import AvailableCars from "../../../components/customer/AvailableCars";
 import CarItem from "./CarItem";
 import carData from "../../../assets/CarData/carData";
 import LoginCustomer from "../../../components/customer/LoginCustomer/LoginCustomer";
-import instance from "../../../axios";
 
 class Home extends Component {
 
@@ -29,6 +27,7 @@ class Home extends Component {
 
         const {classes} = this.props;
         return (
+            <body>
             <Fragment>
                 <div className={classes.mainWrapper}>
                     <div className={classes.topHeaderWrapper}>
@@ -59,7 +58,7 @@ class Home extends Component {
 
                                 <Button className={classes.loginButton}
 
-                                        onClick={()=>{
+                                        onClick={() => {
                                             this.child.handleShow();
                                         }}
 
@@ -78,7 +77,9 @@ class Home extends Component {
 
 
                                 <RegisterCustomer/>
-                                <LoginCustomer ref={instance => { this.child = instance; }}/>
+                                <LoginCustomer ref={instance => {
+                                    this.child = instance;
+                                }}/>
 
 
                                 <HiSearch className={classes.HiSearch}/>
@@ -108,48 +109,35 @@ class Home extends Component {
                         </div>
 
                     </div>
-
-                    <div className={classes.bottom_body}>
-                        <HeroForm/>
-                        {/*<FindCarForm/>*/}
-
-                        <div className={classes.bottom_bodyInner}>
-                            <h1><b>ABOUT</b></h1>
-                        </div>
-
-                        <div className={classes.bottom_carImageAbout}>
-                            <img src="../../../assets/image/redCar.jpg" alt=""/>
-                        </div>
-
-                    </div>
+                    <HeroForm/>
+                    {/*<FindCarForm/>*/}
 
 
-
-                    {/*<div>
-                        <Container>
-                            <Row>
-                                <Col lg="12" className="text-center mb-5">
-                                    <h6 className="section__subtitle">Come with</h6>
-                                    <h2 className="section__title">Hot Offers</h2>
-                                </Col>
-
-                                {carData.slice(0, 9).map((item) => (
-                                    <CarItem item={item} key={item.id} />
-                                ))}
-                            </Row>
-                        </Container>
-                    </div>*/}
-
-                    <div  className={classes.bottom_body1}>
-                        {/*<h1>jsdfgd</h1>*/}
-                        {/*<AvailableCars/>*/}
+                    <div className={classes.bottom_carImageAbout}>
+                        <img src="../../../assets/image/redCar.jpg" alt=""/>
                     </div>
 
                 </div>
 
 
+                <div>
+                    <Container>
+                        <Row>
+                            <Col lg="12" className="text-center mb-5">
+                                <h6 className="section__subtitle">Come with</h6>
+                                <h2 className="section__title">Hot Offers</h2>
+                            </Col>
+
+                            {carData.slice(0, 9).map((item) => (
+                                <CarItem item={item} key={item.id}/>
+                            ))}
+                        </Row>
+                    </Container>
+                </div>
+
 
             </Fragment>
+            </body>
         )
     }
 }

@@ -45,8 +45,9 @@
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
-    bottom: 225px;
+    bottom: 180px;
     width: 1200px;
+    margin-left: -400px;
 }
 
 .select__group {

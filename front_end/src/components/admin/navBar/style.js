@@ -2,7 +2,7 @@ export const styleSheet= {
 
 
     navBar_container: {
-        backgroundColor: "red",
+        backgroundColor: "white",
         height: '10%',
         display: 'flex',
         flexDirection: 'column',
@@ -11,12 +11,15 @@ export const styleSheet= {
 
 
     },
-    logo_container:{},
-    img_logo: {
-        width: '230px',
-        right:'450px',
-
+    logo_container:{
+        left:'349px',
+        position:'relative',
+        height:'4px',
+        width:'5px',
     },
+    /*img_logo: {
+
+    },*/
     navBarButton_container: {
         width: "50%",
         height: '50%',

@@ -16,6 +16,7 @@ function App() {
         /*<RegisterCustomer/>*/
         /*<RentalRequest/>*/
         /*<ManageDriver/>*/
+      /*  <ManageCar/>*/
         /*<AdminNavBar/>*/
         <Home/>
         /* <AddCustomer/>*/

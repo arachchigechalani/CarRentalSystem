@@ -41,13 +41,13 @@ export const styleSheet = {
 
     },
 
-    bottom_carImageAbout: {
+    /*bottom_carImageAbout: {
         position: 'relative',
         height: '234px',
         width: '789px',
         image: "url(" + redCar + ")no-repeat   fixed",
 
-    },
+    },*/
 
     bottom_body1: {
         height: '900px',
@@ -57,7 +57,7 @@ export const styleSheet = {
 
     container: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         width: '100vw',
         height: '100vh'
 
