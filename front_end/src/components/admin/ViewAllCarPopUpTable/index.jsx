@@ -16,6 +16,7 @@ import TablePagination from "@material-ui/core/TablePagination";
 
 const columns = [
     { id: 'carId', label: "CarId", minWidth: 170 },
+    { id: 'carType', label: "CarType", minWidth: 170 },
     { id: 'brand', label: "Brand", minWidth: 100 },
     {id: 'numOfp', label: 'Number Of Passenger', minWidth: 170, align: 'right'},
     {id: 'TransType', label: "Transmission Type", minWidth: 170, align: 'right'},
@@ -24,12 +25,13 @@ const columns = [
     {id: 'color', label: 'Color', minWidth: 170, align: 'right'},
     {id: 'priceDaily', label: 'Prices for the rent Daily', minWidth: 170, align: 'right'},
     {id: 'priceMonthly', label: 'Prices for the rent monthly', minWidth: 170, align: 'right'},
-    {id: 'freeMileage', label: 'Free mileage', minWidth: 170, align: 'right'},
+    {id: 'dailyFreeKm', label: 'daily Free Km', minWidth: 170, align: 'right'},
+    {id: 'monthlyFreeKm', label: 'monthly Free Km', minWidth: 170, align: 'right'},
     {id: 'pOfExtraKm', label: 'Price for extra KM', minWidth: 170, align: 'right'},
 ];
 
-function createData(carId, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) {
-    return { carId, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,freeMileage,pOfExtraKm };
+function createData(carId,carType, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm) {
+    return { carId,carType, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm };
 }
 
 const useStyles = makeStyles({
@@ -49,7 +51,7 @@ const rows = [
 
 export default function ViewAllCarPopUpTable(props) {
 
-    const loadCarDetails=async (carId,brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,freeMileage,pOfExtraKm) =>{
+    const loadCarDetails=async (carId,carType,brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm) =>{
         let frontImage;
         let backImage;
         let sideImage;
@@ -71,7 +73,7 @@ export default function ViewAllCarPopUpTable(props) {
         if (res1.status===200) {
             interiorImage=URL.createObjectURL(res4.data)
         }
-        props.data.changeStateCarDetails(carId, brand, numOfp, TransType,fuelType,regNum, color, priceDaily, priceMonthly, freeMileage, pOfExtraKm,frontImage,backImage,sideImage,interiorImage);
+        props.data.changeStateCarDetails(carId,carType, brand, numOfp, TransType,fuelType,regNum, color, priceDaily, priceMonthly, dailyFreeKm,monthlyFreeKm, pOfExtraKm,frontImage,backImage,sideImage,interiorImage);
 
     }
 
@@ -83,7 +85,7 @@ export default function ViewAllCarPopUpTable(props) {
             //console.log(res.data.data[0].vehicleId);
             var i=0;
             for (let dataKey of res.data.data) {
-                rows[i]=createData(dataKey.vehicleId,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.priceOfRentDurationDaily,dataKey.priceOfRentDurationMonthly,dataKey.freeMileageForPriceAndDuration,dataKey.priceOfExtraKm);i++;
+                rows[i]=createData(dataKey.vehicleId,dataKey.vehicleType,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.dailyPrice,dataKey.monthlyPrice,dataKey.dailyFreeKm,dataKey.monthlyFreeKm,dataKey.priceOfExtraKm);i++;
             }
             setShow(true)
         }else {
@@ -158,7 +160,7 @@ export default function ViewAllCarPopUpTable(props) {
 
 
                                                       onClick={async () =>{
-                                                           await loadCarDetails(row.carId, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.freeMileage, row.pOfExtraKm)
+                                                           await loadCarDetails(row.carId,row.carType, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.dailyFreeKm, row.monthlyFreeKm, row.pOfExtraKm)
 
                                                           setShow(false)
                                                       }

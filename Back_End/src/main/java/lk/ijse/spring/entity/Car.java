@@ -20,12 +20,15 @@ import java.util.Set;
 public class Car {
     @Id
     private String vehicleId;
+    private String vehicleType;
     private String brand;
     private String NumOfPassenger;
     private String transmissionType;
     private String fuelType;
-    private PriceOfRentDuration priceOfRentDuration;
-    private String freeMileageForPriceAndDuration;
+    private String dailyPrice;
+    private String monthlyPrice;
+    private String dailyFreeKm;
+    private String monthlyFreeKm;
     private String priceOfExtraKm;
     private String registerNumber;
     private String color;

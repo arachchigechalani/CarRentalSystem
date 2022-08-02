@@ -13,9 +13,12 @@ import Col from "react-bootstrap/Col";
 import HomeNavBar from "../../../components/admin/HomeNavBar";
 import RegisterCustomer from "../../../components/customer/RegisterCustomer/RegisterCustomer";
 import HeroForm from "../../../components/customer/HeroForm";
-import CarItem from "./CarItem";
-import carData from "../../../assets/CarData/carData";
+import CarItem from "../../../components/customer/carItem/CarItem";
+import CarData from "../../../components/customer/CarData/CarData";
 import LoginCustomer from "../../../components/customer/LoginCustomer/LoginCustomer";
+import CarDetailsPopUp from "../../../components/customer/CarDetailsPopup";
+import CarDetails from "../../../components/customer/CarData/CarData";
+
 
 class Home extends Component {
 
@@ -127,10 +130,9 @@ class Home extends Component {
                                 <h6 className="section__subtitle">Come with</h6>
                                 <h2 className="section__title">Hot Offers</h2>
                             </Col>
+                            <CarDetails/>
+                            {/*<CarDetailsPopUp/>*/}
 
-                            {carData.slice(0, 9).map((item) => (
-                                <CarItem item={item} key={item.id}/>
-                            ))}
                         </Row>
                     </Container>
                 </div>

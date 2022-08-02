@@ -84,7 +84,7 @@ public class CarController {
     }
 
     @GetMapping(path = "getCarImage" , produces = MediaType.IMAGE_JPEG_VALUE)
-    public ResponseEntity<?> getCarImage(@RequestParam String carId, String view){
+    public ResponseEntity<?> getCarImage(@RequestParam String carId,@RequestParam String view){
 
         ImageDTO imageDTO = new ImageDTO(carId, "car", view);
         Resource fileAsResource = downloadUtil.getFileAsResource(imageDTO);

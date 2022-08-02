@@ -34,6 +34,7 @@ class ManageCar extends Component {
             carDetails: {
                 vehicleId: '',
                 vehicleType: '',
+                vehicleBrand: '',
                 numofP: '',
                 transmissionType: '',
                 fuelType: '',
@@ -41,26 +42,29 @@ class ManageCar extends Component {
                 color: '',
                 pricesForDaily: '',
                 pricesForMonthly: '',
-                freeMileage: '',
+                freeKmDaily: '',
+                freeKmMonthly: '',
                 priceForExtraKm: '',
             }
         }
     }
 
-    changeStateCarDetails(vehicleId, vehicleType, numofP, transmissionType, fuelType, registerNum, color, pricesForDaily, pricesForMonthly, freeMileage, priceForExtraKm, frontImage, backImage, sideImage, interiorImage) {
-        this.setState({
+    changeStateCarDetails(vehicleId, vehicleType,brand, numOfPassenger, transmissionType, fuelType, registerNumber, color, dailyPrice, monthlyPrice, dailyFreeKm, monthlyFreeKm, priceOfExtraKm, frontImage, backImage, sideImage, interiorImage) {
+        this.setState({/*THIS-POPUP EKEN ENA TIKA*/
             carDetails: {
                 vehicleId: vehicleId,
                 vehicleType: vehicleType,
-                numofP: numofP,
+                vehicleBrand: brand,
+                numofP: numOfPassenger,
                 transmissionType: transmissionType,
                 fuelType: fuelType,
-                registerNum: registerNum,
+                registerNum: registerNumber,
                 color: color,
-                pricesForDaily: pricesForDaily,
-                pricesForMonthly: pricesForMonthly,
-                freeMileage: freeMileage,
-                priceForExtraKm: priceForExtraKm,
+                pricesForDaily: dailyPrice,
+                pricesForMonthly: monthlyPrice,
+                freeKmDaily: dailyFreeKm,
+                freeKmMonthly: monthlyFreeKm,
+                priceForExtraKm: priceOfExtraKm,
             },
             frontView: frontImage,
             backView: backImage,
@@ -90,15 +94,17 @@ class ManageCar extends Component {
 
     addCar = async () => {
 
-        var carDetails = {
+        var carDetails = {/*DTO-THIS*/
             vehicleId: this.state.carDetails.vehicleId,
-            brand: this.state.carDetails.vehicleType,
+            vehicleType: this.state.carDetails.vehicleType,
+            brand: this.state.carDetails.vehicleBrand,
             numOfPassenger: this.state.carDetails.numofP,
             transmissionType: this.state.carDetails.transmissionType,
             fuelType: this.state.carDetails.fuelType,
-            priceOfRentDurationDaily: this.state.carDetails.pricesForDaily,
-            priceOfRentDurationMonthly: this.state.carDetails.pricesForMonthly,
-            freeMileageForPriceAndDuration: this.state.carDetails.freeMileage,
+            dailyPrice: this.state.carDetails.pricesForDaily,
+            monthlyPrice: this.state.carDetails.pricesForMonthly,
+            dailyFreeKm: this.state.carDetails.freeKmDaily,
+            monthlyFreeKm: this.state.carDetails.freeKmMonthly,
             priceOfExtraKm: this.state.carDetails.priceForExtraKm,
             registerNumber: this.state.carDetails.registerNum,
             color: this.state.carDetails.color,
@@ -122,15 +128,17 @@ class ManageCar extends Component {
     updateCar = async () => {
         var carUpdateDetails = {
             vehicleId: this.state.carDetails.vehicleId,
+            vehicleType: this.state.carDetails.vehicleType,
             brand: this.state.carDetails.vehicleType,
-            numOfPassenger: this.state.carDetails.numofP,
+            NumOfPassenger: this.state.carDetails.numofP,
             transmissionType: this.state.carDetails.transmissionType,
             fuelType: this.state.carDetails.fuelType,
-            priceOfRentDurationDaily: this.state.carDetails.pricesForDaily,
-            priceOfRentDurationMonthly: this.state.carDetails.pricesForMonthly,
-            freeMileageForPriceAndDuration: this.state.carDetails.freeMileage,
-            priceOfExtraKm: this.state.carDetails.priceForExtraKm,
-            registerNumber: this.state.carDetails.registerNum,
+            dailyPrice: this.state.carDetails.pricesForDaily,
+            monthlyPrice: this.state.carDetails.pricesForMonthly,
+            dailyFreeKm: this.state.carDetails.freeMileage,
+            monthlyFreeKm: this.state.carDetails.priceForExtraKm,
+            priceOfExtraKm: this.state.carDetails.registerNum,
+            registerNumber: this.state.carDetails.color,
             color: this.state.carDetails.color,
             state: 'Parking'
         }
@@ -199,6 +207,7 @@ class ManageCar extends Component {
             carDetails: {
                 vehicleId: '',
                 vehicleType: '',
+                vehicleBrand: '',
                 numofP: '',
                 transmissionType: '',
                 fuelType: '',
@@ -206,7 +215,8 @@ class ManageCar extends Component {
                 color: '',
                 pricesForDaily: '',
                 pricesForMonthly: '',
-                freeMileage: '',
+                freeKmDaily: '',
+                freeKmMonthly: '',
                 priceForExtraKm: '',
             }
 
@@ -254,12 +264,12 @@ class ManageCar extends Component {
 
                                 <div className={classes.formTextFieldContainer}>
 
-                                    <div>
+
                                         <div>
                                             <TextField
                                                 size={"small"}
                                                 id="outlined-required"
-                                                label="Vehical ID"
+                                                label="Car ID"
                                                 variant="outlined"
                                                 InputLabelProps={{
                                                     shrink: true,
@@ -293,6 +303,23 @@ class ManageCar extends Component {
                                             <TextField
                                                 size={"small"}
                                                 id="outlined-required"
+                                                label="Brand"
+                                                variant="outlined"
+                                                InputLabelProps={{
+                                                    shrink: true,
+                                                }}
+                                                value={this.state.carDetails.vehicleBrand}
+                                                onChange={(e) => {
+                                                    let formData = this.state.carDetails
+                                                    formData.vehicleBrand = e.target.value
+                                                    this.setState({formData})
+                                                }}
+                                            />
+                                        </div>
+                                        <div>
+                                            <TextField
+                                                size={"small"}
+                                                id="outlined-required"
                                                 label="Num of Passengers"
                                                 variant="outlined"
                                                 InputLabelProps={{
@@ -307,7 +334,7 @@ class ManageCar extends Component {
                                             />
                                         </div>
 
-                                    </div>
+
 
 
                                     <TextField
@@ -422,18 +449,33 @@ class ManageCar extends Component {
                                     />
 
                                     <TextField
-
                                         size={"small"}
                                         id="outlined-required"
-                                        label="Km"
+                                        label="Free Mileage Daily Km"
                                         variant="outlined"
                                         InputLabelProps={{
                                             shrink: true,
                                         }}
-                                        value={this.state.carDetails.freeMileage}
+                                        value={this.state.carDetails.freeKmDaily}
                                         onChange={(e) => {
                                             let formData = this.state.carDetails
-                                            formData.freeMileage = e.target.value
+                                            formData.freeKmDaily = e.target.value
+                                            this.setState({formData})
+                                        }}
+                                    />
+
+                                    <TextField
+                                        size={"small"}
+                                        id="outlined-required"
+                                        label="Free Mileage Monthly Km"
+                                        variant="outlined"
+                                        InputLabelProps={{
+                                            shrink: true,
+                                        }}
+                                        value={this.state.carDetails.freeKmMonthly}
+                                        onChange={(e) => {
+                                            let formData = this.state.carDetails
+                                            formData.freeKmMonthly = e.target.value
                                             this.setState({formData})
                                         }}
                                     />

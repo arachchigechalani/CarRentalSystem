@@ -16,10 +16,10 @@ function App() {
         /*<RegisterCustomer/>*/
         /*<RentalRequest/>*/
         /*<ManageDriver/>*/
-      /*  <ManageCar/>*/
+        /*<ManageCar/>*/
         /*<AdminNavBar/>*/
         <Home/>
-        /* <AddCustomer/>*/
+
     );
 }
 
