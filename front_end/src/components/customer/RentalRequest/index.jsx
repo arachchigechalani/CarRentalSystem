@@ -9,8 +9,10 @@ import Radio from '@material-ui/core/Radio';
 /*
 import logo1 from '../../../assets/icon/logo.png'
 */
+import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CarService from "../../../services/CarService";
+import ClipLoader from "react-spinners/ClipLoader";
 
 class RentalRequest extends Component {
     constructor(props) {
@@ -18,13 +20,12 @@ class RentalRequest extends Component {
         this.state = {
             show: false,
             selectedValue: '',
-            loading: false,
 
             brand: '',
             type: '',
             transmission: '',
-
-
+            numOfp: '',
+            carImage: null,
 
         }
     }
@@ -36,20 +37,45 @@ class RentalRequest extends Component {
         this.setState({show: true})
     }
 
-    getCar = async (carId) => {
-        let res = await CarService.getCarById(carId);
-        if (res != 'ERR_BAD_REQUEST') {
+    loadData = () => {
+        this.setState({
+            brand: this.props.data.carName,
+            type: this.props.data.carType,
+            transmission: this.props.data.automatic,
+            numOfp : this.props.data.numofp,
+            carImage: this.props.data.imgUrl,
+        })
+    }
 
+    /* getCar=async (carId) =>{
+         let res = await CarService.getCarById(carId);
+         if (res!='ERR_BAD_REQUEST'){
+              this.setState({
+                  brand : res.data.brand,
+                  type : res.data.vehicleType,
+                  transmission : res.data.transmissionType,
+                  numOfp : res.data.numOfPassenger,
+              })
+             let response = await CarService.getCarImage(carId,"Side");
+              if (response!='ERR_BAD_REQUEST'){
+                  this.setState({
+                      carImage : URL.createObjectURL(response.data)
+                  })
+              }
+             this.setState({loading : false})
+         }
 
-        }
-
+     }*/
+    componentDidMount() {
+        this.loadData()
     }
 
     render() {
         const {classes} = this.props
         return (
+
             <>
-                <button className=" w-50 car__item-btn car__btn-rent" style={{color: 'white'}}
+                <button className=" w-50 car_item-btn car_btn-rent" style={{color: 'white'}}
                         onClick={() => {
                             this.handleShow()
                         }}
@@ -65,7 +91,7 @@ class RentalRequest extends Component {
                 >
                     <Modal.Header closeButton>
                         {/*
-                        <img src={logo1} alt=""/>
+                                    <img src={logo1} alt=""/>
 */}
                         <Modal.Title>Modal title</Modal.Title>
                     </Modal.Header>
@@ -74,7 +100,10 @@ class RentalRequest extends Component {
                             <div className={classes.topContainer}>
                                 <div className={classes.contentContainer}>
 
-                                    <div className={classes.imageContainer}>
+                                    <div style={{
+                                        backgroundImage: "url(" + this.state.carImage + ")",
+                                        backgroundSize: 'cover'
+                                    }} className={classes.imageContainer}>
 
                                     </div>
 
@@ -88,7 +117,7 @@ class RentalRequest extends Component {
                                             </Box>
                                             <Box fontFamily="Monospace" style={{color: 'white'}} fontSize="15px"
                                                  fontWeight={300} m={1}>
-                                                BMW
+                                                {this.state.brand}
                                             </Box>
                                         </div>
                                         <div className={classes.textContainers}>
@@ -98,7 +127,7 @@ class RentalRequest extends Component {
                                             </Box>
                                             <Box fontFamily="Monospace" style={{color: 'white'}} fontSize="15px"
                                                  fontWeight={300} m={1}>
-                                                Premium
+                                                {this.state.type}
                                             </Box>
                                         </div>
                                         <div className={classes.textContainers}>
@@ -108,7 +137,7 @@ class RentalRequest extends Component {
                                             </Box>
                                             <Box fontFamily="Monospace" style={{color: 'white'}} fontSize="15px"
                                                  fontWeight={300} m={1}>
-                                                Auto
+                                                {this.state.transmission}
                                             </Box>
                                         </div>
                                         <div className={classes.textContainers}>
@@ -118,7 +147,7 @@ class RentalRequest extends Component {
                                             </Box>
                                             <Box fontFamily="Monospace" style={{color: 'white'}} fontSize="15px"
                                                  fontWeight={300} m={1}>
-                                                4
+                                                {this.state.numOfp}
                                             </Box>
 
                                         </div>
@@ -206,11 +235,13 @@ class RentalRequest extends Component {
                         <Button variant="primary">Understood</Button>
                     </Modal.Footer>
                 </Modal>
+
             </>
+
+
         );
     }
 
 }
 
 export default withStyles(styleSheet)(RentalRequest)
-

@@ -31,7 +31,7 @@ const CarItem = (props) => {
                         </span>
                     </div>
 
-                    <RentalRequest data={carId}/>
+                    <RentalRequest data={props.item}/>
 
                     {/*<button className=" w-50 car_item-btn car_btn-rent" style={{color : 'black',background:'#c9af16'}}
                             onClick={() =>{
