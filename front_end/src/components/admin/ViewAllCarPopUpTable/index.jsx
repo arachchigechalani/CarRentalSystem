@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,9 +15,9 @@ import TablePagination from "@material-ui/core/TablePagination";
 
 
 const columns = [
-    { id: 'carId', label: "CarId", minWidth: 170 },
-    { id: 'carType', label: "CarType", minWidth: 170 },
-    { id: 'brand', label: "Brand", minWidth: 100 },
+    {id: 'carId', label: "CarId", minWidth: 170},
+    {id: 'carType', label: "CarType", minWidth: 170},
+    {id: 'brand', label: "Brand", minWidth: 100},
     {id: 'numOfp', label: 'Number Of Passenger', minWidth: 170, align: 'right'},
     {id: 'TransType', label: "Transmission Type", minWidth: 170, align: 'right'},
     {id: 'fuelType', label: 'Fuel Type', minWidth: 170, align: 'right'},
@@ -30,8 +30,22 @@ const columns = [
     {id: 'pOfExtraKm', label: 'Price for extra KM', minWidth: 170, align: 'right'},
 ];
 
-function createData(carId,carType, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm) {
-    return { carId,carType, brand, numOfp, TransType,fuelType,regNum,color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm };
+function createData(carId, carType, brand, numOfp, TransType, fuelType, regNum, color, priceDaily, priceMonthly, dailyFreeKm, monthlyFreeKm, pOfExtraKm) {
+    return {
+        carId,
+        carType,
+        brand,
+        numOfp,
+        TransType,
+        fuelType,
+        regNum,
+        color,
+        priceDaily,
+        priceMonthly,
+        dailyFreeKm,
+        monthlyFreeKm,
+        pOfExtraKm
+    };
 }
 
 const useStyles = makeStyles({
@@ -43,52 +57,50 @@ const useStyles = makeStyles({
     },
 });
 
-const rows = [
-
-];
-
+const rows = [];
 
 
 export default function ViewAllCarPopUpTable(props) {
 
-    const loadCarDetails=async (carId,carType,brand, numOfp, TransType, fuelType, regNum, color,priceDaily,priceMonthly,dailyFreeKm,monthlyFreeKm,pOfExtraKm) =>{
+    const loadCarDetails = async (carId, carType, brand, numOfp, TransType, fuelType, regNum, color, priceDaily, priceMonthly, dailyFreeKm, monthlyFreeKm, pOfExtraKm) => {
         let frontImage;
         let backImage;
         let sideImage;
         let interiorImage;
 
-        let res1 = await carService.getCarImage(carId,"Front");
-        if (res1.status===200) {
-            frontImage=URL.createObjectURL(res1.data)
+        let res1 = await carService.getCarImage(carId, "Front");
+        if (res1.status === 200) {
+            frontImage = URL.createObjectURL(res1.data)
         }
-        let res2 = await carService.getCarImage(carId,"Back");
-        if (res1.status===200) {
-            backImage=URL.createObjectURL(res2.data)
+        let res2 = await carService.getCarImage(carId, "Back");
+        if (res1.status === 200) {
+            backImage = URL.createObjectURL(res2.data)
         }
-        let res3 = await carService.getCarImage(carId,"Side");
-        if (res1.status===200) {
-            sideImage=URL.createObjectURL(res3.data)
+        let res3 = await carService.getCarImage(carId, "Side");
+        if (res1.status === 200) {
+            sideImage = URL.createObjectURL(res3.data)
         }
-        let res4 = await carService.getCarImage(carId,"Interior");
-        if (res1.status===200) {
-            interiorImage=URL.createObjectURL(res4.data)
+        let res4 = await carService.getCarImage(carId, "Interior");
+        if (res1.status === 200) {
+            interiorImage = URL.createObjectURL(res4.data)
         }
-        props.data.changeStateCarDetails(carId,carType, brand, numOfp, TransType,fuelType,regNum, color, priceDaily, priceMonthly, dailyFreeKm,monthlyFreeKm, pOfExtraKm,frontImage,backImage,sideImage,interiorImage);
+        props.data.changeStateCarDetails(carId, carType, brand, numOfp, TransType, fuelType, regNum, color, priceDaily, priceMonthly, dailyFreeKm, monthlyFreeKm, pOfExtraKm, frontImage, backImage, sideImage, interiorImage);
 
     }
 
-    const getAllCars=async () =>{
-        rows.length=0;
+    const getAllCars = async () => {
+        rows.length = 0;
         let res = await carService.getAllCar();
-        if (res.code==undefined){
+        if (res.code == undefined) {
 
             //console.log(res.data.data[0].vehicleId);
-            var i=0;
+            var i = 0;
             for (let dataKey of res.data.data) {
-                rows[i]=createData(dataKey.vehicleId,dataKey.vehicleType,dataKey.brand,dataKey.numOfPassenger,dataKey.transmissionType,dataKey.fuelType,dataKey.registerNumber,dataKey.color,dataKey.dailyPrice,dataKey.monthlyPrice,dataKey.dailyFreeKm,dataKey.monthlyFreeKm,dataKey.priceOfExtraKm);i++;
+                rows[i] = createData(dataKey.vehicleId, dataKey.vehicleType, dataKey.brand, dataKey.numOfPassenger, dataKey.transmissionType, dataKey.fuelType, dataKey.registerNumber, dataKey.color, dataKey.dailyPrice, dataKey.monthlyPrice, dataKey.dailyFreeKm, dataKey.monthlyFreeKm, dataKey.priceOfExtraKm);
+                i++;
             }
             setShow(true)
-        }else {
+        } else {
             alert("Car Not Found")
         }
     }
@@ -113,12 +125,13 @@ export default function ViewAllCarPopUpTable(props) {
             {/* <div>{props.data.unit}</div>*/}
 
 
-            <Button variant="primary" onClick={() => {
-                /*setShow(true)*/
-                getAllCars();
+            <Button variant="primary" color="red"
+                    onClick={() => {
+                        /*setShow(true)*/
+                        getAllCars();
 
-            }}>
-                View All Cars
+                    }}>
+                <b>View All Cars</b>
             </Button>
             <Modal
                 size={"xl"}
@@ -133,7 +146,7 @@ export default function ViewAllCarPopUpTable(props) {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                   {/* {/table/}*/}
+                    {/* {/table/}*/}
                     <Paper className={classes.root}>
                         <TableContainer className={classes.container}>
                             < Table stickyHeader aria-label="sticky table">
@@ -143,7 +156,7 @@ export default function ViewAllCarPopUpTable(props) {
                                             <TableCell
                                                 key={column.id}
                                                 align={column.align}
-                                                style={{ minWidth: column.minWidth }}
+                                                style={{minWidth: column.minWidth}}
                                             >
                                                 {column.label}
                                             </TableCell>
@@ -159,8 +172,8 @@ export default function ViewAllCarPopUpTable(props) {
                                             <TableRow hover role="checkbox" tabIndex={-1} key={row.code}
 
 
-                                                      onClick={async () =>{
-                                                           await loadCarDetails(row.carId,row.carType, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.dailyFreeKm, row.monthlyFreeKm, row.pOfExtraKm)
+                                                      onClick={async () => {
+                                                          await loadCarDetails(row.carId, row.carType, row.brand, row.numOfp, row.TransType, row.fuelType, row.regNum, row.color, row.priceDaily, row.priceMonthly, row.dailyFreeKm, row.monthlyFreeKm, row.pOfExtraKm)
 
                                                           setShow(false)
                                                       }

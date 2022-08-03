@@ -20,6 +20,15 @@ public class CarServiceImpl implements CarService {
     @Autowired
     private ModelMapper mapper;
 
+    @Override
+    public CarDTO getCarById(String carId) {
+        if (carRepo.existsById(carId)){
+            return mapper.map(carRepo.getCarById(carId),CarDTO.class);
+        }else {
+            throw new RuntimeException("car not found...");
+        }
+
+    }
 
     @Override
     public void addCar(CarDTO carDTO) {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Link from "@material-ui/core/Link";
 import {styleSheet} from "./style";
 import withStyles from "@material-ui/core/styles/withStyles";
 /*import icon from "../../../assets/icon/logo.png"*/
@@ -16,14 +15,14 @@ function CarDetailsPopUp(props) {
     return (
         <>
             <button className=" w-50 car_item-btn car_btn-details"
-                    onClick={handleShow} style={{color:'white'}}>
-                Car Details
+                    onClick={handleShow} style={{color:'white',background:'black'}}>
+                <b>Car Details</b>
             </button>
 
             <Modal style={{ color : 'blue',  background: 'rgba(255, 255, 255, 0)' , boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)', backdropFilter: 'blur(8.8px)'}} size={"lg"} show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                    {/* <img src={icon} alt=""/>*/}
-                    <div style={{width : '150px'}}></div>
+                    <div style={{width : '170px'}}></div>
                     <Modal.Title><div>Car Details</div></Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

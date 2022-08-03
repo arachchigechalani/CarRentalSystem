@@ -14,8 +14,9 @@ function CarDetails(){
         if (response.status == 200) {
             carData.length=0
             for (const car of response.data.data) {
-                let resPhoto = await CarService.getCarImage(car.vehicleId, "Front");
+                let resPhoto = await CarService.getCarImage(car.vehicleId, "SIDE");
                 carData.push({
+                    carId : car.vehicleId,
                     imgUrl: URL.createObjectURL(resPhoto.data),
                     carType : car.vehicleType,
                     carName : car.brand,

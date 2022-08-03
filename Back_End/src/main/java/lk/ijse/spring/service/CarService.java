@@ -12,4 +12,5 @@ public interface CarService {
 
 
     public List<CarDTO> getAllCars();
+    public CarDTO getCarById(String carId);
 }

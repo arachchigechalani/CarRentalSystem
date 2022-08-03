@@ -20,10 +20,8 @@ class HeroForm extends Component {
             <div className={classes.hero__form}>
                 <Container>
                     <Row className={classes.form__row}>
+
                         <Col lg="4" md="4">
-                            <div className={classes.find__cars_left}>
-                                <h2>Find your best car here</h2>
-                            </div>
                         </Col>
 
                         <Col lg="8" md="8" sm="12">

@@ -32,33 +32,50 @@ export const styleSheet = {
         justifyContent: 'space-around',
         width: '100%',
         height: '100%',
-        backgroundColor: '#ececec',
+        backgroundColor: '#ffffff',
         borderRadius: '3px',
         top:'888px'
+    },
+
+    uploadBtn1_container:{
+        boxShadow:'4px 4px 4px 2px',
+        shadowColor:'red'
+    },
+    uploadBtn2_container:{
+        boxShadow:'4px 4px 4px 2px',
+        shadowColor:'red'
+    },
+    uploadBtn3_container:{
+        boxShadow:'4px 4px 4px 2px',
+        shadowColor:'red'
+    },
+    uploadBtn4_container:{
+        boxShadow:'4px 4px 4px 2px',
+        shadowColor:'red'
     },
 
     form_backGround_left: {
         marginLeft: '10px',
         display: 'flex',
-        width: '1100px',
-        height: '700px',
-        backgroundColor: '#faecdc',
+        width: '1000px',
+        height: '600px',
+        backgroundColor: '#f3f1ee',
         boxShadow: '1px 1px 3px 1.5px',
-        //borderRadius : '5px',
+        borderRadius : '5px',
         flexDirection: 'column',
-        top:'18px',
+        top:'10px',
         position:'relative',
     },
 
     form_backGround_right: {
         display: 'flex',
         width: '350px',
-        height: '700px',
+        height: '600px',
         backgroundColor: 'white',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        top:'18px',
+        top:'10px',
         position:'relative',
     },
 
@@ -103,7 +120,7 @@ export const styleSheet = {
 
     clearButtonContainer: {
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -115,14 +132,13 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         height: '5%',
-        backgroundColor: '#ec7519',
+        backgroundColor: '#0d840f',
         borderTopLeftRadius: '5px',
         borderTopRightRadius: '5px',
 
     },
     formTextFieldContainer: {
-        /*height: '25%',*/
-        /*   backgroundColor : '#9e62ce',*/
+        height: '25%',
         display: 'flex',
         flexWrap: 'wrap',
         flexDirection: 'row',
@@ -160,11 +176,12 @@ export const styleSheet = {
     imageContainer: {
         marginTop: '30px',
         height: '28%',
-        backgroundColor: '#97bde2',
+        backgroundColor: '#868085',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
+        borderRadius:'15px'
 
     },
 
@@ -181,15 +198,13 @@ export const styleSheet = {
         alignItems: 'center',
         justifyContent: 'center',
         height: '17%',
-        backgroundColor: '#ee7824',
+        backgroundColor: '#0d840f',
         borderTopLeftRadius: '5px',
         borderTopRightRadius: '5px',
 
     },
     uploadButtonContainer: {
-
-        height: '7%',
-        /* backgroundColor :'#57a0a0',*/
+        height: '9%',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',

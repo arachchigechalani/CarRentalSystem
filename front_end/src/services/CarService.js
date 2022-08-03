@@ -1,11 +1,10 @@
 import  axios from "../axios";
 
 class CarService {
-    getCarImage = async (carId,view) =>{
+
+    getCarById =async (carId) =>{
         const promise = new Promise((resolve, reject) => {
-            axios.get('car/getCarImage?carId='+carId+'&view='+view, {
-                responseType: 'blob',
-            })
+            axios.get('car/getCar?id='+carId)
 
                 .then((res) => {
                     return resolve(res)
@@ -17,9 +16,9 @@ class CarService {
         return await promise;
     }
 
-    getAllCar = async () => {
+    addCar = async (data) => {
         const promise = new Promise((resolve, reject) => {
-            axios.get('car/getAllCars')
+            axios.post('car/addCar',data)
 
                 .then((res) => {
                     return resolve(res)
@@ -45,9 +44,11 @@ class CarService {
         return await promise;
     }
 
-    addCar = async (data) => {
+    getCarImage = async (carId,view) =>{
         const promise = new Promise((resolve, reject) => {
-            axios.post('car/addCar',data)
+            axios.get('car/getCarImage?carId='+carId+'&view='+view, {
+                responseType: 'blob',
+            })
 
                 .then((res) => {
                     return resolve(res)
@@ -58,7 +59,6 @@ class CarService {
         })
         return await promise;
     }
-//----------------------------------------------------------------------------------------
 
     updateCar = async (data) => {
         const promise = new Promise((resolve, reject) => {
@@ -74,8 +74,6 @@ class CarService {
         return await promise;
     }
 
-
-//----------------------------------------------------------------------------------------
     updateCarImage =async (image,carId,view) =>{
         const promise = new Promise((resolve, reject) => {
             axios.post('car/updateCarImage?carId='+carId+'&view='+view,image)
@@ -117,6 +115,28 @@ class CarService {
         })
         return await promise;
     }
+
+
+
+    getAllCar = async () => {
+        const promise = new Promise((resolve, reject) => {
+            axios.get('car/getAllCars')
+
+                .then((res) => {
+                    return resolve(res)
+                })
+                .catch((err) => {
+                    return resolve(err)
+                })
+        })
+        return await promise;
+    }
+
+
+
+
+
+
 
 
 }

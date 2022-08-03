@@ -12,6 +12,8 @@
     border: 1px solid #7c8a9736;
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 2px 3px 2px 3px;
+
 }
 
 .car__item-info span i {

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 public interface CarRepo extends JpaRepository<Car,String> {
 
     @Query("select v from Car v where v.vehicleId=?1")
-    Car getVehicleById(String id);
+    Car getCarById(String id);
 }

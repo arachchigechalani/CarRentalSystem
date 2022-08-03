@@ -126,19 +126,19 @@ class ManageCar extends Component {
     }
 
     updateCar = async () => {
-        var carUpdateDetails = {
+        var carUpdateDetails = {/*DTO-THIS*/
             vehicleId: this.state.carDetails.vehicleId,
             vehicleType: this.state.carDetails.vehicleType,
-            brand: this.state.carDetails.vehicleType,
-            NumOfPassenger: this.state.carDetails.numofP,
+            brand: this.state.carDetails.vehicleBrand,
+            numOfPassenger: this.state.carDetails.numofP,
             transmissionType: this.state.carDetails.transmissionType,
             fuelType: this.state.carDetails.fuelType,
             dailyPrice: this.state.carDetails.pricesForDaily,
             monthlyPrice: this.state.carDetails.pricesForMonthly,
-            dailyFreeKm: this.state.carDetails.freeMileage,
-            monthlyFreeKm: this.state.carDetails.priceForExtraKm,
-            priceOfExtraKm: this.state.carDetails.registerNum,
-            registerNumber: this.state.carDetails.color,
+            dailyFreeKm: this.state.carDetails.freeKmDaily,
+            monthlyFreeKm: this.state.carDetails.freeKmMonthly,
+            priceOfExtraKm: this.state.carDetails.priceForExtraKm,
+            registerNumber: this.state.carDetails.registerNum,
             color: this.state.carDetails.color,
             state: 'Parking'
         }
@@ -243,10 +243,6 @@ class ManageCar extends Component {
                 <div className={classes.divider_container2}></div>
 
                 <div className={classes.form_Container}>
-
-
-
-
 
                             <div className={classes.form_backGround_left}>
                                 <div className={classes.form_textFieldForm}>
@@ -589,9 +585,12 @@ class ManageCar extends Component {
 
                                     />
                                         <label htmlFor="contained-button-file01">
-                                            <Button variant="contained" color="primary" component="span">
-                                                Upload
-                                            </Button>
+                                            <div className={classes.uploadBtn1_container}>
+                                                <Button variant="contained" component="span">
+                                                    <b>Upload</b>
+                                                </Button>
+                                            </div>
+
                                         </label>
 
                                     </div>
@@ -612,9 +611,11 @@ class ManageCar extends Component {
                                         }}
                                     />
                                         <label htmlFor="contained-button-file02">
-                                            <Button variant="contained" color="primary" component="span">
-                                                Upload
+                                            <div className={classes.uploadBtn2_container}>
+                                            <Button variant="contained"  component="span">
+                                                <b>Upload</b>
                                             </Button>
+                                            </div>
                                         </label>
 
                                     </div>
@@ -635,9 +636,11 @@ class ManageCar extends Component {
                                         }}
                                     />
                                         <label htmlFor="contained-button-file03">
-                                            <Button variant="contained" color="primary" component="span">
-                                                Upload
-                                            </Button>
+                                            <div className={classes.uploadBtn3_container}>
+                                                <Button variant="contained"  component="span">
+                                                    <b>Upload</b>
+                                                </Button>
+                                            </div>
                                         </label>
 
                                     </div>
@@ -658,9 +661,11 @@ class ManageCar extends Component {
                                         }}
                                     />
                                         <label htmlFor="contained-button-file04">
-                                            <Button variant="contained" color="primary" component="span">
-                                                Upload
-                                            </Button>
+                                            <div className={classes.uploadBtn4_container}>
+                                                <Button variant="contained"  component="span">
+                                                    <b>Upload</b>
+                                                </Button>
+                                            </div>
                                         </label>
                                     </div>
                                 </div>
@@ -686,10 +691,10 @@ class ManageCar extends Component {
                                             variant="outlined"
                                             size="small"
 
-                                            style={{borderRadius: '20px', width: '70%'}}
+                                            style={{borderRadius: '24px', width: '70%'}}
                                         />
                                         <Button variant="outlined" style={{color: 'green'}}>
-                                            Search
+                                            <b>Search</b>
                                         </Button>
                                     </div>
 
@@ -703,7 +708,7 @@ class ManageCar extends Component {
 
                                                 }}
                                         >
-                                            Save
+                                            <b>Save</b>
                                         </Button>
 
                                         <Button variant="outlined" style={{color: 'blue', width: '30%'}}
@@ -712,7 +717,7 @@ class ManageCar extends Component {
 
                                                 }}
                                         >
-                                            Update
+                                            <b>Update</b>
                                         </Button>
 
                                         <Button variant="outlined" style={{color: 'red', width: '30%'}}
@@ -722,7 +727,7 @@ class ManageCar extends Component {
                                                 }}
 
                                         >
-                                            Delete
+                                            <b>Delete</b>
                                         </Button>
 
 
@@ -735,15 +740,12 @@ class ManageCar extends Component {
 
 
                                         <Button variant="outlined" style={{color: 'back', width: '95%'}}>
-                                            Clear All
+                                            <b>Clear All</b>
                                         </Button>
 
                                     </div>
                                 </div>
                             </div>
-
-
-
 
 
                     {/*<Row>

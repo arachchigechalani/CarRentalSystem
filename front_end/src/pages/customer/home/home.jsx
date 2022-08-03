@@ -5,7 +5,6 @@ import {AiFillFacebook, AiOutlineInstagram} from "react-icons/ai";
 import {FaLinkedin, FaTwitterSquare} from "react-icons/fa";
 import Button from "@material-ui/core/Button";
 import {TbPower} from "react-icons/tb";
-import {RiAddCircleFill} from "react-icons/ri";
 import {HiSearch} from "react-icons/hi";
 import Container from "@material-ui/core/Container";
 import Row from "react-bootstrap/Row";
@@ -13,10 +12,7 @@ import Col from "react-bootstrap/Col";
 import HomeNavBar from "../../../components/admin/HomeNavBar";
 import RegisterCustomer from "../../../components/customer/RegisterCustomer/RegisterCustomer";
 import HeroForm from "../../../components/customer/HeroForm";
-import CarItem from "../../../components/customer/carItem/CarItem";
-import CarData from "../../../components/customer/CarData/CarData";
 import LoginCustomer from "../../../components/customer/LoginCustomer/LoginCustomer";
-import CarDetailsPopUp from "../../../components/customer/CarDetailsPopup";
 import CarDetails from "../../../components/customer/CarData/CarData";
 
 
@@ -76,10 +72,11 @@ class Home extends Component {
                                             e.target.style.color = "#898"
                                             console.log("cancel")
                                         }}
-                                >Login</Button>
+                                ><b>Login</b></Button>
 
 
                                 <RegisterCustomer/>
+
                                 <LoginCustomer ref={instance => {
                                     this.child = instance;
                                 }}/>
@@ -87,12 +84,8 @@ class Home extends Component {
 
                                 <HiSearch className={classes.HiSearch}/>
 
-
                             </div>
-
                         </div>
-
-
                     </div>
 
                     <HomeNavBar/>
@@ -108,13 +101,12 @@ class Home extends Component {
                         </div>
 
                         <div className={classes.btn_reserve}>
-                            <button type="button" className="btn btn-warning">Reserve Now</button>
+                            <button type="button" className="btn btn-warning"><b>Reserve Now</b></button>
                         </div>
 
                     </div>
-                    <HeroForm/>
-                    {/*<FindCarForm/>*/}
 
+                    <HeroForm/>
 
                     <div className={classes.bottom_carImageAbout}>
                         <img src="../../../assets/image/redCar.jpg" alt=""/>
@@ -127,17 +119,15 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col lg="12" className="text-center mb-5">
-                                <h6 className="section__subtitle">Come with</h6>
-                                <h2 className="section__title">Hot Offers</h2>
+                                <h5 className="section__subtitle">Come with</h5>
+                                <h2 className="section__title" style={{color: '#9e6c1c',}}><b>Hot Offers</b></h2>
                             </Col>
+
                             <CarDetails/>
-                            {/*<CarDetailsPopUp/>*/}
 
                         </Row>
                     </Container>
                 </div>
-
-
             </Fragment>
             </body>
         )

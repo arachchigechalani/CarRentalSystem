@@ -41,6 +41,11 @@ public class CarController {
     @Autowired
     private FileUploadUtil uploadFile;
 
+    @GetMapping(path = "getCar")
+    public ResponseUtil getCarById(@RequestParam String id){
+        CarDTO car = carService.getCarById(id);
+        return new ResponseUtil(200,"Get All Cars",car);
+    }
 
     @PostMapping(path = "addCar", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil addCar(@RequestBody CarDTO carDTO) {
@@ -95,13 +100,11 @@ public class CarController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(fileAsResource);
     }
 
-//----------------------------------------------------------------------------------------
     @PutMapping(path = "updateCar", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil updateCar(@RequestBody CarDTO carDTO){
         carService.editCar(carDTO);
         return new ResponseUtil(200,"car Details Updated",null);
     }
-//----------------------------------------------------------------------------------------
 
 
     @SneakyThrows
@@ -140,13 +143,6 @@ public class CarController {
     }
 
 
-
-    /*@GetMapping(path = "viewRentalRequest", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseUtil viewRentalRequest(){
-        List<RentalRequestDTO> allRentalRequest = carService.getAllRentalRequest();
-        return new ResponseUtil(200,"car Delete success",allRentalRequest);
-    }*/
-
     @GetMapping(path ="getAllCars" ,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCars(){
 
@@ -156,6 +152,12 @@ public class CarController {
 
     }
 
+
+    /*@GetMapping(path = "viewRentalRequest", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil viewRentalRequest(){
+        List<RentalRequestDTO> allRentalRequest = carService.getAllRentalRequest();
+        return new ResponseUtil(200,"car Delete success",allRentalRequest);
+    }*/
 
 
 
