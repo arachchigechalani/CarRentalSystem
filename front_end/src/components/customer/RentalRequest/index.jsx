@@ -232,7 +232,11 @@ class RentalRequest extends Component {
                         <Button variant="secondary" onClick={this.handleClose}>
                             Close
                         </Button>
-                        <Button variant="primary">Understood</Button>
+                        <Button variant="primary"
+
+                        >
+                            Go To Next Step
+                        </Button>
                     </Modal.Footer>
                 </Modal>
 
