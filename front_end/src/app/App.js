@@ -1,15 +1,36 @@
-
 import React from "react";
-import Modal from "@material-ui/core/Modal";
-import ManageCar from "../pages/admin/manageCar";
-import HomeNavBar from "../components/admin/HomeNavBar";
-import Home from "../pages/customer/home/home";
-import ManageCustomer from "../pages/admin/manageCustomer";
-import ManageDriver from "../pages/admin/manageDriver";
-import RegisterCustomer from "../components/customer/RegisterCustomer/RegisterCustomer";
+import RentalRequest from "../components/customer/RentalRequest";
 
 function App() {
     return (
+
+        /*<Home/>*/
+        <RentalRequest/>
+
+
+
+
+        /*<div className="App">
+            <h1>Welcome to React Router!</h1>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="about" element={<ManageCar />} />
+            </Routes>
+        </div>*/
+
+        /*<BrowserRouter>
+            <Routes>
+                <Route exact path='/' element={<Home/>}/>
+                <Route path="/manageCar" element={<ManageCar/>} />
+            </Routes>
+        </BrowserRouter>*/
+
+
+
+
+
+
+
         /*<HomeNavBar/>*/
         /* <Dashboard/>*/
         /*<RegisterCustomer/>*/
@@ -17,7 +38,7 @@ function App() {
         /*<ManageDriver/>*/
         /*<ManageCar/>*/
         /*<AdminNavBar/>*/
-        <Home/>
+        /*<Home/>*/
 
     );
 }

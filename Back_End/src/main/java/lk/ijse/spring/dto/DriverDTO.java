@@ -5,19 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Id;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class RegisterCustomerDTO {
-    private String id;
+public class DriverDTO {
+    private String driverId;
     private String email;
-    private String nic;
     private String drivingLicence;
     private String address;
     private String contactNumber;
-    private String username;
-    private String password;
+    private String state;
 }

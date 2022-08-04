@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,10 +13,14 @@ import javax.persistence.ManyToOne;
 @ToString
 @Entity
 public class DriverSchedule {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @ManyToOne(cascade = CascadeType.ALL)
     private Driver driver;
+
     @ManyToOne(cascade = CascadeType.ALL)
     private Car car;
 

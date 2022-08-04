@@ -9,8 +9,6 @@ public interface CarService {
     void addCar(CarDTO carDTO);
     void editCar(CarDTO carDTO);
     void deleteCar(String carId);
-
-
     public List<CarDTO> getAllCars();
     public CarDTO getCarById(String carId);
 }

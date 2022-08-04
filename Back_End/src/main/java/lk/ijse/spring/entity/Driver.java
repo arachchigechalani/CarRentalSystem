@@ -24,6 +24,8 @@ public class Driver {
     private  String drivingLicence;
     private  String address;
     private  String contactNumber;
+    private String state;
+
     @OneToMany(mappedBy = "driver")
     private Set<DriverSchedule> driverSchedules = new HashSet<DriverSchedule>();
 }

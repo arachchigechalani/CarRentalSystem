@@ -6,14 +6,9 @@ import Button from "@material-ui/core/Button";
 import red from "@material-ui/core/colors/red";
 import blue from "@material-ui/core/colors/blue";
 import TextField from "@material-ui/core/TextField";
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import AdminNavBar from "../../../components/admin/navBar";
 import Divider from "@material-ui/core/Divider";
-import axios from "../../../axios";
 import CarService from "../../../services/CarService";
-import Table from 'react-bootstrap/Table';
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import ViewAllCarPopUpTable from "../../../components/admin/ViewAllCarPopUpTable";
 
 class ManageCar extends Component {

@@ -26,6 +26,5 @@ public class Customer {
     private String contactNumber;
 
     @OneToMany(mappedBy = "customer")
-    private List<RentalRequest> rentalRequests = new ArrayList<RentalRequest>();
-
+    private List<RentalRequest> rentalRequests=new ArrayList<RentalRequest>();
 }
