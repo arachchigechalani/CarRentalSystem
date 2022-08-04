@@ -3,30 +3,22 @@ import RentalRequest from "../components/customer/RentalRequest";
 import Home from "../pages/customer/home/home";
 import ManageCar from "../pages/admin/manageCar";
 
+import { Route,BrowserRouter, Link,Routes } from 'react-router-dom'
+
 function App() {
     return (
-
-        <Home/>
-       /* <ManageCar/>*/
-        /*<RentalRequest/>*/
+        /*<Home/>*/
 
 
 
 
-        /*<div className="App">
-            <h1>Welcome to React Router!</h1>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="about" element={<ManageCar />} />
-            </Routes>
-        </div>*/
 
-        /*<BrowserRouter>
+        <BrowserRouter>
             <Routes>
                 <Route exact path='/' element={<Home/>}/>
                 <Route path="/manageCar" element={<ManageCar/>} />
             </Routes>
-        </BrowserRouter>*/
+        </BrowserRouter>
 
 
 
