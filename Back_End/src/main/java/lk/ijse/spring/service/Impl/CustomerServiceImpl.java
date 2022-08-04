@@ -144,13 +144,5 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
-    @Override
-    public void rentalRequest(RentalRequestDTO rentalRequestDTO) {
-
-
-
-
-    }
-
 
 }
