@@ -13,8 +13,8 @@ import javax.persistence.*;
 @ToString
 @Entity
 public class DriverSchedule {
-
     @Id
+    //sequence table
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 

@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-/*
-import BankDetails from '../../../assets/image/bankDetails.jpeg'
-*/
+import BankDetails from '../../../assets/image/bankdetails1.jpeg'
 import Button from 'react-bootstrap/Button';
-import "../../../pages/customerPages/home/style.css";
+import "../../../pages/customer/home/style";
 import Modal from 'react-bootstrap/Modal';
 import {styleSheet} from "./style";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -116,7 +114,7 @@ class RentalRequest extends Component{
     }
 
     checkCustomerLicense=async (customerId) =>{
-        let response =await customerService.checkLicenseByCustomer(customerId);
+        let response =await CustomerService.checkLicenseByCustomer(customerId);
         if(response.code!='ERR_BAD_REQUEST'){
             this.setState({
                 carRentFormDisplay: 'none',
@@ -374,9 +372,9 @@ class RentalRequest extends Component{
                                     <div className={classes.rightContainerF}>
 
                                         <div className={classes.bankDetailsContainer}>
-{/*
+
                                             <img src={BankDetails} className={classes.bankDetailsImage} alt=""/>
-*/}
+
                                             {/*  <div className={classes.bankDetailsImage}></div>*/}
 
 

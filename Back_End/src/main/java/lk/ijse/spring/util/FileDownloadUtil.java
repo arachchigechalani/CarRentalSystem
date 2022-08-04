@@ -41,17 +41,17 @@ public class FileDownloadUtil {
 
         switch (imageDTO.getImageType()){
 
-            case "car" :  pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\CarImage";
+            case "car" :  pathDirectory = "D:\\2 sem projects\\SpringCarRental_Front_Back\\CarRentalSystem\\Back_End\\src\\main\\resources\\static\\images\\CarImage";
                 path= Paths.get(pathDirectory);
                 searchFile(path,imageName);
                 break;
 
-            case "driverLicence" : pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\driversLicenceImage";
+            case "driverLicence" : pathDirectory = "D:\\2 sem projects\\SpringCarRental_Front_Back\\CarRentalSystem\\Back_End\\src\\main\\resources\\static\\images\\LicenceImage";
                 path= Paths.get(pathDirectory);
                 searchFile(path,imageName);
                 break;
 
-            case "idCard" :   pathDirectory = "D:\\AAD\\Spring Project\\milestone 02 backend\\Easy_Car_Rental_System-Spring-Project-\\EasyCarRental\\src\\main\\resources\\static\\image\\NICImage";
+            case "idCard" :   pathDirectory = "D:\\2 sem projects\\SpringCarRental_Front_Back\\CarRentalSystem\\Back_End\\src\\main\\resources\\static\\images\\IdCardImage";
                 path= Paths.get(pathDirectory);
                 searchFile(path,imageName);
                 break;

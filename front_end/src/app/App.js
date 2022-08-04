@@ -1,11 +1,14 @@
 import React from "react";
 import RentalRequest from "../components/customer/RentalRequest";
+import Home from "../pages/customer/home/home";
+import ManageCar from "../pages/admin/manageCar";
 
 function App() {
     return (
 
-        /*<Home/>*/
-        <RentalRequest/>
+        <Home/>
+       /* <ManageCar/>*/
+        /*<RentalRequest/>*/
 
 
 

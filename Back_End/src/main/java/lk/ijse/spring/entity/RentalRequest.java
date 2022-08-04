@@ -16,8 +16,11 @@ import java.util.Date;
 @ToString
 public class RentalRequest {
     @Id
+
+    //sequence table
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int requestId;
+
     @ManyToOne
     private Customer customer;
 

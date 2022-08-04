@@ -59,17 +59,20 @@ public class CustomerServiceImpl implements CustomerService {
     public String getNewId() {
         String lastCustId = repo.getLastCustId();
 
-        String[] split = lastCustId.split("-");
-        long index = Long.parseLong(split[1]);
+        if (lastCustId!=null) {
+            String[] split = lastCustId.split("-");
+            long index = Long.parseLong(split[1]);
 
-         long incrementId=++index;
+            long incrementId = ++index;
 
-        if (incrementId<10){
-            return "C-00"+incrementId ;
-        }else if (incrementId>=10 && index<100){
-            return "C-0"+ incrementId ;
-        }else if(incrementId>=100){
-            return "C-"+ incrementId ;
+            if (incrementId < 10) {
+                return "C-00" + incrementId;
+            } else if (incrementId >= 10 && index < 100) {
+                return "C-0" + incrementId;
+            } else if (incrementId >= 100) {
+                return "C-" + incrementId;
+            }
+            return "C-001";
         }
         return "C-001";
     }
