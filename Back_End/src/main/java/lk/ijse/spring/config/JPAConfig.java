@@ -34,7 +34,7 @@ public class JPAConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/carRental?createDatabaseIfNotExist=true");
         dataSource.setUsername("root");
-        dataSource.setPassword("1234");
+        dataSource.setPassword("*2000Chalani#");
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         return dataSource;
     }

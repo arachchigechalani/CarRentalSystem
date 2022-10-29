@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface AdminService {
 
-    List<RentalRequestDTO> getAllRentalRequest();
+    void checkUserAccount(String userName,String password);
+
 }
